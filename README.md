@@ -12,5 +12,8 @@ Apply RTC patch.
 ### Audio:
 You can use HDEF and a codec patch (ALC*) if you will use a patched AppleHDA.
 Make sure layout-id in DSDT (hex) coincides with LayoutID in AppleHDA (dec).
+
+
 DSDT: LayoutID (dec, base10)
+
 AppleHDA: layout-id (hex, base16)
