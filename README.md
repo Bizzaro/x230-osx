@@ -15,4 +15,5 @@ Make sure layout-id in DSDT (hex) coincides with LayoutID in AppleHDA (dec).
 
 
 DSDT: LayoutID (dec, base10)
+
 AppleHDA: layout-id (hex, base16)
