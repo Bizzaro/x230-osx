@@ -1,7 +1,7 @@
 ## Common problems and fixes
 
 ### USB:
-<todo>
+*todo*
 
 ### Sleep:
 Problems with sleep are usually related to power management and USB.
