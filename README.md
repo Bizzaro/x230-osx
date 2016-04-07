@@ -1,8 +1,7 @@
 ## Common problems and fixes
 
 ### USB:
-There are many USB patches, EHCI, UHCI, ICH9 USB sleep, EHCI sleep/ownership, some are generic, some are organized by chipset.
-If you have problems with USB ports, if you see errors or warnings in kernel log about EHCI or UHCI, you can try these patches. 
+<todo>
 
 ### Sleep:
 Problems with sleep are usually related to power management and USB.
