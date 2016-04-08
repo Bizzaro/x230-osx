@@ -57,8 +57,13 @@
 
 ### Sound after sleep issues
 
-* CodecCommander loaded in /S/L/E w/ kextutility or with Kextbeast + repair permissions/cache script
+* CodecCommander loaded in /S/L/E w/ Kext Utility or with KextBeast + repair permissions/cache script
 
+### Commands to check AppleHDA, if anything returns empty = game over, restore default AppleHDA in /S/L/E 
+
+* kextstat|grep -y applehda 
+* sudo touch /System/Library/Extensions && sudo kextcache -u / 
+* Use DCPIManager to check, if Codec ID, revision, codec name are empty = bad
 --------------------------------------------------------------------------------------------
 
 ### BIOS settings
