@@ -22,7 +22,7 @@
 
 ### Summary of problems and fixes
 
-| Device        | Problem        | Fix (tldr DSDT patches are your friend) |
+| Feature     | Problem        | Fix (tldr DSDT patches are your friend) |
 | ------------- | ------------    | ----- |
 | Sleep | Instant wake, device doesn't stay asleep | Apply DSDT USB3 instant wake 0x0, RTC patches |
 | Audio | No devices in sound preferences | Inject patched AppleHDA, codec is ALC297VC_v3 (layout-id in DSDT is hex, LayoutID in AppleHDA is dec) |
