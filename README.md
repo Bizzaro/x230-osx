@@ -16,3 +16,11 @@ Make sure layout-id in DSDT (hex) coincides with LayoutID in AppleHDA (dec).
 DSDT: LayoutID (dec, base10)
 
 AppleHDA: layout-id (hex, base16)
+
+| Device        | Problem        | Fix  |
+| ------------- | ------------    | ----- |
+| Sleep | Instant wake, device doesn't stay asleep | USB3 instant wake 0x0, RTC patch |
+| Audio | HDEF + codec patch (ALC___), patched AppleHDA, layout-id in DSDT is hex, LayoutID in AppleHDA is dec. | Patched AppleHDA + Injection method |
+| Battery and PM | No battery status, no native PM | Apply DSDT patch with Thinkpad x230i + Fix Mutex with non-zero synclevel | 
+| GPU | Graphics not working natively | Apply DSDT patches for iGPU, brightness HD4000 + Low resolution | 
+| USB | Ports not working/keeps device awake | Apply DSDT patches Ivy Bridge = Intel 7 series USB | 
