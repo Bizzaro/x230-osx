@@ -9,7 +9,7 @@
 * EFI BIOS: 2.65 
 * ECV BIOS: 1.14 
 
-![alt text](https://raw.githubusercontent.com/Bizzaro/x230-osx/master/Screenshots/Screen%20Shot%202016-04-08%20at%204.56.38%20AM.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/Bizzaro/x230-osx/master/Screenshots/Screen%20Shot%202016-04-08%20at%204.56.38%20AM.png)
 
 --------------------------------------------------------------------------------------------
 ### Working
