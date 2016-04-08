@@ -1,5 +1,5 @@
 ## Thinkpad x230 (2320-32U) OS X El Capitan 10.11.4
-### Working: 
+### Working
 * PM
 * Ethernet
 * USB ports
@@ -10,15 +10,15 @@
 * Wireless (Using USB mini WLAN adapter with native drivers from manufacturer)
 * Sound/Audio, automatic headphone detection, mute, volume controls fully working
 
-### Not working:
+### Not working
 * Bluetooth/built in mini-PCIE WLAN card
 * Card Reader (Never tried)
 
-### Bugs:
+### Bugs
 * Sound works on resume after you sleep from menu once. Afterwards, everytime lid close and resume, sound will work
 * Boot screen logo glitch, reduce with custom logo = none, config.plist in Clover edit
 
-### Summary of problems and fixes:
+### Summary of problems and fixes
 
 | Device        | Problem        | Fix  |
 | ------------- | ------------    | ----- |
