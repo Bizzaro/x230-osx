@@ -109,10 +109,14 @@
 7. Disable boot graphics glitches (http://www.tonymacx86.com/el-capitan-laptop-support/175799-fix-resolve-boot-screen-garble.html) and set custom logo to none in config.plist
 
 The patch should be entered into config.plist/KernelAndKextPatches/KextsToPatch.
-Comment: Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)
+
+Comment: Boot graphics glitch
+
 Name: IOGraphicsFamily
-Find: <01000075 17>
-Replace: <010000eb 17>
+
+Find: <0100007517>
+
+Replace: <010000eb17>
 --------------------------------------------------------------------------------------------
 ### DSDT Patches
 
