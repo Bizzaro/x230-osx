@@ -59,11 +59,13 @@
 
 * CodecCommander loaded in /S/L/E w/ Kext Utility or with KextBeast + repair permissions/cache script
 
+--------------------------------------------------------------------------------------------
 ### Commands to check AppleHDA, if anything returns empty = game over, restore default AppleHDA in /S/L/E 
 
 * kextstat|grep -y applehda 
 * sudo touch /System/Library/Extensions && sudo kextcache -u / 
 * Use DCPIManager to check, if Codec ID, revision, codec name are empty = bad
+
 --------------------------------------------------------------------------------------------
 
 ### BIOS settings
@@ -104,26 +106,13 @@
 4. Patch your own SSDT's, you could use the same if CPU models are identical.
 5. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of OS drive. 
 6. Trim Enabler 
-7. Disable boot graphics glitches
+7. Disable boot graphics glitches (http://www.tonymacx86.com/el-capitan-laptop-support/175799-fix-resolve-boot-screen-garble.html) and set custom logo to none in config.plist
 
-<key>KextsToPatch</key>
-<array>
-<dict>
-	<key>Comment</key>
-	<string>Boot graphics glitch</string>
-	<key>Disabled</key>
-	<true/>
-	<key>Find</key>
-	<data>AQAAdRc=</data>
-	<key>Name</key>
-	<string>IOGraphicsFamily</string>
-	<key>Replace</key>
-	<data>AQAA6xc=</data>
-</dict>
-</array>
-
-Set custom logo to none in config.plist
-
+The patch should be entered into config.plist/KernelAndKextPatches/KextsToPatch.
+Comment: Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)
+Name: IOGraphicsFamily
+Find: <01000075 17>
+Replace: <010000eb 17>
 --------------------------------------------------------------------------------------------
 ### DSDT Patches
 
