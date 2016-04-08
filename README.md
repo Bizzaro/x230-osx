@@ -1,5 +1,5 @@
 ## Thinkpad x230 OS X - Running fully functional, natively.
-Updated: April 8 2016
+**Updated: April 8 2016**
 
 ### Specs
 * Model: x230 2320-32U
