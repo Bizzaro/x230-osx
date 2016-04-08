@@ -75,7 +75,7 @@
 
 * Check AppleHDA kext load status: kextstat|grep -y applehda 
 * sudo touch /System/Library/Extensions && sudo kextcache -u / 
-* Use DCPIManager to check audio devices and if Codec ID, revision, codec name are empty = bad
+* Use DCPIManager to check audio devices and if codec ID, revision, codec name are empty = bad
 * Check custom loaded kext status: kextstat | grep -v com.apple
 
 --------------------------------------------------------------------------------------------
