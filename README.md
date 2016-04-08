@@ -48,6 +48,19 @@
 3. HDAEnabler.kext 
 
 --------------------------------------------------------------------------------------------
+
+### AppleHDA patching methods
+1. Modify AppleHDA by itself, injecting with any method
+2. Live patch AppleHDA + injecting DummyHDA.kext with any method
+
+--------------------------------------------------------------------------------------------
+
+### Sound after sleep issues
+
+* CodecCommander loaded in S/L/E w/ kextutility or with Kextbeast + repair permissions/cache script
+
+--------------------------------------------------------------------------------------------
+
 ### BIOS settings
 | Item | Setting |
 | ------------- | ------------ |
@@ -118,9 +131,5 @@ Set custom logo to none in config.plist
 * If using DSDT inject use HDEF + IRQ provided w/ patcher
 
 --------------------------------------------------------------------------------------------
-### Sound after sleep issues
 
-* CodecCommander loaded in S/L/E w/ kextutility or with Kextbeast + repair permissions/cache script
-
---------------------------------------------------------------------------------------------
 
