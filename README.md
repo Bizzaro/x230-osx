@@ -6,6 +6,7 @@
 * RAM: 12GB DDR3 
 * Storage: 128GB SSD
 * OS: OS X El Capitan 10.11.4
+* Bootloader: Clover v2.3K R3320 UEFI
 * EFI BIOS: 2.65 
 * ECV BIOS: 1.14 
 
@@ -19,13 +20,16 @@
 * Battery status
 * Keyboard, trackpad, trackpoint
 * Sleep from menu + lid close sleep
-* HD4000 (Brightness control with fn + k, fn + p and QE/CI active)
+* HD4000 (Brightness control with fn + k, fn + p and QE/CI active, external display with Mini-DP)
 * Wireless (Using USB mini WLAN adapter with native drivers from manufacturer)
 * Sound/Audio, automatic headphone detection, mute, volume controls fully working
+* Webcam
 
 ### Not working
 * Bluetooth/built in mini-PCIE WLAN card (could swap card with Atheros 9280 and rebrand as Intel 6300)
-* Card Reader (Never tried)
+* Card reader (never tried)
+* Fingerprint reader 
+* VGA (does not exist on real apple computers)
 
 ### Bugs
 * Sound works on resume after you sleep from menu once. Afterwards, everytime lid close and resume, sound will work
@@ -122,10 +126,10 @@ Find: <0100007517>
 Replace: <010000eb17>
 
 --------------------------------------------------------------------------------------------
-### DSDT Patches
+### DSDT patches
 
-* Battery Thinkpad x230i
-* iGPU: brightness HD4000, Low resolution
+* Battery: Thinkpad x230i
+* iGPU: Brightness HD4000, Low resolution
 * RTC fix 
 * Fix Mutex with non-zero synclevel
 * Ivy Bridge = 7 series USB
