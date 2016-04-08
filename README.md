@@ -1,4 +1,5 @@
 ## Thinkpad x230 OS X - Running fully functional, natively.
+Updated: April 8 2016
 
 ### Specs
 * Model: x230 2320-32U
@@ -71,7 +72,7 @@
 * Check AppleHDA kext load status: kextstat|grep -y applehda 
 * sudo touch /System/Library/Extensions && sudo kextcache -u / 
 * Use DCPIManager to check audio devices and if Codec ID, revision, codec name are empty = bad
-* Check custom loaded sexts: kextstat | grep -v com.apple
+* Check custom loaded kext status: kextstat | grep -v com.apple
 
 --------------------------------------------------------------------------------------------
 
