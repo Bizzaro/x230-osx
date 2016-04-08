@@ -1,4 +1,18 @@
-## Common problems and fixes
+# Thinkpad x230 (2320-32U) OS X El Capitan 10.11.4
+## Working: 
+⋅⋅* Sound/Audio
+⋅⋅* Sleep from menu + lid close sleep
+⋅⋅* USB
+⋅⋅* Wireless (Mini WLAN adapter with native drivers)
+⋅⋅* Keyboard, trackpad, trackpoint
+⋅⋅* PM
+⋅⋅* Ethernet
+⋅⋅* HD4000 (Brightness control with fn + k, fn + p and QE/CI active)
+⋅⋅* Battery status
+
+## Not working:
+⋅⋅* Bluetooth/built in mini-PCIE WLAN
+## Problems and fixes
 
 ### Summary:
 
