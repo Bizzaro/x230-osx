@@ -3,7 +3,7 @@
 
 **Note:** This is **NOT** a spoonfeeding guide, other resources may be required to pull you up to speed. This page is meant to *reduce* the amount of googling and testing what works and what doesn't. 
 
-**ime taken to get system fully working:** ~30 hours *(shouldn't take you this long since everything I encountered is listed here)*
+**Time taken to get system fully working:** ~30 hours *(shouldn't take you this long since everything I encountered is listed here)*
 
 ### Specs
 * Model: x230 2320-32U
