@@ -50,14 +50,14 @@
 --------------------------------------------------------------------------------------------
 
 ### AppleHDA patching methods
-1. Modify AppleHDA by itself, injecting with any method
+1. Modify AppleHDA by itself, rewrite AppleHDA.kext in /S/L/E, injecting with any method
 2. Live patch AppleHDA + injecting DummyHDA.kext with any method
 
 --------------------------------------------------------------------------------------------
 
 ### Sound after sleep issues
 
-* CodecCommander loaded in S/L/E w/ kextutility or with Kextbeast + repair permissions/cache script
+* CodecCommander loaded in /S/L/E w/ kextutility or with Kextbeast + repair permissions/cache script
 
 --------------------------------------------------------------------------------------------
 
