@@ -16,7 +16,7 @@
 * ECV BIOS: 1.14 
 
 ![alt text](https://raw.githubusercontent.com/Bizzaro/x230-osx/master/Screenshots/Screen%20Shot%202016-04-08%20at%204.56.38%20AM.png)
-
+![alt text](https://raw.githubusercontent.com/Bizzaro/x230-osx/master/Screenshots/IMG_20160408_135226.jpg)
 --------------------------------------------------------------------------------------------
 ### Working
 * Power Management (C/P-states, fan RPM, speedstep, etc)
