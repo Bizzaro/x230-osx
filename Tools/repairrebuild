@@ -1,0 +1,18 @@
+echo "********************************************************"
+echo "Before running this script, boot your system with boot arg: kext-dev-mode=1"
+echo "This repairs permissions and rebuilds cache."
+echo "Modified by Bizzaro"
+echo "********************************************************"
+echo "."
+echo "Fixing ownership and permissions..."
+chmod -R 755 /System/Library/Extensions/*
+chown -R root:wheel /System/Library/Extensions/*
+chown root:admin /
+echo "Rebuilding kext cache..."
+kextcache -system-prelinked-kernel
+kextcache -system-caches
+echo "."
+echo "Process complete."
+read -p "Press any key to reboot"
+echo "Rebooting..."
+shutdown -r now
