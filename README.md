@@ -116,7 +116,7 @@ http://www.tonymacx86.com/el-capitan-laptop-support/152573-guide-patching-laptop
 4. Patch your own SSDT's, you could use the same if CPU models are identical.
 http://www.tonymacx86.com/el-capitan-laptop-support/175801-guide-native-power-management-laptops.html
 5. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of OS drive. 
-6. Trim Enabler 
+6. TRIM Enabler (if using SSD, every system in 2016 should have one imo) 
 7. Disable boot graphics glitches (http://www.tonymacx86.com/el-capitan-laptop-support/175799-fix-resolve-boot-screen-garble.html) and set custom logo to none in config.plist
 
 Patch should be entered into config.plist/KernelAndKextPatches/KextsToPatch.
