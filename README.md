@@ -14,7 +14,7 @@
 
 --------------------------------------------------------------------------------------------
 ### Working
-* Power Management (C/P-states, fan RPM, etc)
+* Power Management (C/P-states, fan RPM, speedstep, etc)
 * Ethernet
 * USB ports
 * Battery status
