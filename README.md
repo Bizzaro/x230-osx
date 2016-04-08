@@ -111,12 +111,10 @@
 The patch should be entered into config.plist/KernelAndKextPatches/KextsToPatch.
 
 Comment: Boot graphics glitch
-
 Name: IOGraphicsFamily
-
 Find: <0100007517>
-
 Replace: <010000eb17>
+
 --------------------------------------------------------------------------------------------
 ### DSDT Patches
 
