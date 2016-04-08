@@ -83,5 +83,5 @@
 2. Config.plist can be shared if you wish, personal preferences, except injections.
 3. Patch your own DSDT's using guide on tonymacx86 from RehabMan, every system needs custom DSDT, no exceptions.
 4. Patch your own SSDT's, you could use the same if CPU models are identical.
-5. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of drive. 
+5. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of OS drive. 
 
