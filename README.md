@@ -32,7 +32,7 @@
 * VGA (does not exist on real apple computers)
 
 ### Bugs
-* Sound works on resume after you sleep from menu once. Afterwards, everytime lid close and resume, sound will work
+* Sound works on resume after you sleep from menu. Afterwards, lid close and resume, sound will work
 * Boot screen logo glitch, reduce with custom logo = none, config.plist in Clover edit
 * -xcpm boot argument will cause kernel panic (KP)
 * Sleep LED/power LED will remain in blinking state after wake 
@@ -100,7 +100,8 @@
 --------------------------------------------------------------------------------------------
 ### Install
 1. Follow tonymacx86 Unibeast steps to make your USB (I don't personally use MultiBeast).
-2. Mount EFI partition of USB with EFI Mounter v3 (tonymacx86).
+http://www.tonymacx86.com/el-capitan-desktop-guides/172672-unibeast-install-os-x-el-capitan-any-supported-intel-based-pc.html
+2. Mount EFI partition of USB with EFI Mounter v3 (from tonymacx86).
 3. Copy Kexts to Kexts folder on the EFI partition.
 4. Change BIOS settings (settings key is F1).
 5. Boot USB (boot menu key is F12).
@@ -110,7 +111,10 @@
 1. Install Clover v2.3K R3320 UEFI .pkg - different version is OK, but must be UEFI.
 2. Config.plist can be shared if you wish, personal preferences, except injections.
 3. Patch your own DSDT's using guide on tonymacx86 from RehabMan, every system needs custom DSDT, no exceptions.
+http://www.tonymacx86.com/el-capitan-laptop-support/152573-guide-patching-laptop-dsdt-ssdts.html
+(trust me, its worth the read)
 4. Patch your own SSDT's, you could use the same if CPU models are identical.
+http://www.tonymacx86.com/el-capitan-laptop-support/175801-guide-native-power-management-laptops.html
 5. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of OS drive. 
 6. Trim Enabler 
 7. Disable boot graphics glitches (http://www.tonymacx86.com/el-capitan-laptop-support/175799-fix-resolve-boot-screen-garble.html) and set custom logo to none in config.plist
@@ -134,8 +138,10 @@ Replace: <010000eb17>
 * Fix Mutex with non-zero synclevel
 * Ivy Bridge = 7 series USB
 * USB3 instant wake 0x0
-* If using DSDT inject use HDEF + IRQ provided w/ patcher
+* If using DSDT inject use HDEF + IRQ provided with patcher
 
 --------------------------------------------------------------------------------------------
-
+### Other resources: 
+http://www.tonymacx86.com/el-capitan-laptop-support/
+Google is your best friend.
 
