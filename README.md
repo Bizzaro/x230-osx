@@ -5,7 +5,7 @@ Running fully functional, native.
 ### Specs
 * Model: x230 2320-32U
 * CPU: Intel i5-3210M 2.50GHz
-* RAM: 12GB RAM
+* RAM: 12GB DDR3 
 * Storage: 128GB SSD
 * OS: OS X El Capitan 10.11.4
 * EFI BIOS: 2.65 
