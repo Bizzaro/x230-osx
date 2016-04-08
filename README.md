@@ -71,16 +71,16 @@
 
 --------------------------------------------------------------------------------------------
 ### Install
-1. Follow tonymacx86 Unibeast steps to make your USB. (I don't personally use MultiBeast)
-2. Mount EFI partition of USB with EFI Mounter v3 (tonymacx86)
-3. Copy Kexts to Kexts folder on the EFI partition
-4. Change BIOS settings (settings key is F1)
-5. Boot USB. (boot menu key is F12)
+1. Follow tonymacx86 Unibeast steps to make your USB (I don't personally use MultiBeast).
+2. Mount EFI partition of USB with EFI Mounter v3 (tonymacx86).
+3. Copy Kexts to Kexts folder on the EFI partition.
+4. Change BIOS settings (settings key is F1).
+5. Boot USB (boot menu key is F12).
 
 --------------------------------------------------------------------------------------------
 ### Post-install
-1. Install Clover v2.3K R3320 UEFI .pkg - different version is OK, but must be UEFI
-2. Patch your own DSDT's using guide on tonymacx86 from RehabMan, every system needs custom DSDT, no exceptions
-3. Patch your own SSDT's, could use the same if same CPU
+1. Install Clover v2.3K R3320 UEFI .pkg - different version is OK, but must be UEFI.
+2. Patch your own DSDT's using guide on tonymacx86 from RehabMan, every system needs custom DSDT, no exceptions.
+3. Patch your own SSDT's, you could use the same if CPU models are identical.
 4. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of drive. 
 
