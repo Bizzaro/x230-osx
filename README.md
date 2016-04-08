@@ -18,9 +18,7 @@
 * Sound works on resume after you sleep from menu once. Afterwards, everytime lid close and resume, sound will work
 * Boot screen logo glitch, reduce with custom logo = none, config.plist in Clover edit
 
-### Problems and fixes
-
-#### Summary:
+### Summary of problems and fixes:
 
 | Device        | Problem        | Fix  |
 | ------------- | ------------    | ----- |
