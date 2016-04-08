@@ -143,5 +143,6 @@ Replace: <010000eb17>
 --------------------------------------------------------------------------------------------
 ### Other resources: 
 http://www.tonymacx86.com/el-capitan-laptop-support/
+
 Google is your best friend.
 
