@@ -108,11 +108,14 @@
 6. Trim Enabler 
 7. Disable boot graphics glitches (http://www.tonymacx86.com/el-capitan-laptop-support/175799-fix-resolve-boot-screen-garble.html) and set custom logo to none in config.plist
 
-The patch should be entered into config.plist/KernelAndKextPatches/KextsToPatch.
+Patch should be entered into config.plist/KernelAndKextPatches/KextsToPatch.
 
 Comment: Boot graphics glitch
+
 Name: IOGraphicsFamily
+
 Find: <0100007517>
+
 Replace: <010000eb17>
 
 --------------------------------------------------------------------------------------------
