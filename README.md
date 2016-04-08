@@ -8,7 +8,7 @@
 * OS: OS X El Capitan 10.11.4
 * EFI BIOS: 2.65 
 * ECV BIOS: 1.14 
-
+--------------------------------------------------------------------------------------------
 ### Working
 * PM
 * Ethernet
@@ -27,9 +27,7 @@
 ### Bugs
 * Sound works on resume after you sleep from menu once. Afterwards, everytime lid close and resume, sound will work
 * Boot screen logo glitch, reduce with custom logo = none, config.plist in Clover edit
-
 --------------------------------------------------------------------------------------------
-
 ### Summary of problems and fixes
 
 | Feature     | Problem        | Fix (tldr DSDT patches are your friend) |
@@ -39,16 +37,12 @@
 | Battery and PM | No battery status, no native PM | Apply DSDT patch with Thinkpad x230i + Fix Mutex with non-zero synclevel | 
 | GPU | Graphics not working natively | Apply DSDT patches for iGPU, brightness HD4000 + Low resolution | 
 | USB | Ports not working/keeps device awake | Apply DSDT patches Ivy Bridge = Intel 7 series USB | 
-
 --------------------------------------------------------------------------------------------
-
 ### AppleHDA injection methods
 1. DSDT patch HDEF + IRQ (layout-id is in hex) - preferred
 2. Clover config.plist
 3. HDAEnabler.kext 
-
 --------------------------------------------------------------------------------------------
-
 ### BIOS settings
 | Item | Setting |
 | ------------- | ------------ |
