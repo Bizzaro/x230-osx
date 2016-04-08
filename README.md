@@ -1,4 +1,16 @@
-## Thinkpad x230 (2320-32U) OS X El Capitan 10.11.4
+## Thinkpad x230 OS X
+
+Running fully functional, native.
+
+### Specs
+* Model: x230 2320-32U
+* CPU: Intel i5-3210M 2.50GHz
+* RAM: 12GB RAM
+* Storage: 128GB SSD
+* OS: OS X El Capitan 10.11.4
+* EFI BIOS: 2.65 
+* ECV BIOS: 1.14 
+
 ### Working
 * PM
 * Ethernet
