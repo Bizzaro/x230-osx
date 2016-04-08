@@ -141,7 +141,7 @@ Replace: <010000eb17>
 * If using DSDT inject use HDEF + IRQ provided with patcher
 
 --------------------------------------------------------------------------------------------
-### Other resources: 
+### Other resources
 http://www.tonymacx86.com/el-capitan-laptop-support/
 
 Google is your best friend.
