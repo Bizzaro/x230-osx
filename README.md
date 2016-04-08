@@ -44,6 +44,7 @@
 1. DSDT patch HDEF + IRQ (layout-id is in hex) - preferred
 2. Clover config.plist
 3. HDAEnabler.kext 
+
 --------------------------------------------------------------------------------------------
 ### BIOS settings
 | Item | Setting |
