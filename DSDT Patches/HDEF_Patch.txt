@@ -1,0 +1,22 @@
+#Automatically adjusted by AppleHDA Patcher.app
+# original by RehabMan
+
+
+#   Inject Audio info
+into method label _DSM parent_label HDEF remove_entry;
+into device label HDEF insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built in" },\n
+        "layout-id", Buffer() { 0x03, 0x00, 0x00, 0x00 },\n
+        "device_type", Buffer() { "Audio Controller" },\n
+        "built-in", Buffer() { 0x00 },\n
+        "PinConfigurations", Buffer() { },\n
+        "hda-gfx", Buffer() { "onboard-1" }\n
+    })\n
+}\n
+end
