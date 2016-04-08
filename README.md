@@ -22,13 +22,14 @@
 * Sound/Audio, automatic headphone detection, mute, volume controls fully working
 
 ### Not working
-* Bluetooth/built in mini-PCIE WLAN card
+* Bluetooth/built in mini-PCIE WLAN card (could swap card with Atheros 9280 and rebrand as Intel 6300)
 * Card Reader (Never tried)
 
 ### Bugs
 * Sound works on resume after you sleep from menu once. Afterwards, everytime lid close and resume, sound will work
 * Boot screen logo glitch, reduce with custom logo = none, config.plist in Clover edit
 * -xcpm boot argument will cause kernel panic (KP)
+* Sleep LED/power LED will remain in blinking state after wake 
 
 --------------------------------------------------------------------------------------------
 ### Summary of problems and fixes
@@ -84,4 +85,43 @@
 3. Patch your own DSDT's using guide on tonymacx86 from RehabMan, every system needs custom DSDT, no exceptions.
 4. Patch your own SSDT's, you could use the same if CPU models are identical.
 5. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of OS drive. 
+6. Trim Enabler 
+7. Disable boot graphics glitches
+
+<key>KextsToPatch</key>
+<array>
+<dict>
+	<key>Comment</key>
+	<string>Boot graphics glitch</string>
+	<key>Disabled</key>
+	<true/>
+	<key>Find</key>
+	<data>AQAAdRc=</data>
+	<key>Name</key>
+	<string>IOGraphicsFamily</string>
+	<key>Replace</key>
+	<data>AQAA6xc=</data>
+</dict>
+</array>
+
+Set custom logo to none in config.plist
+
+--------------------------------------------------------------------------------------------
+### DSDT Patches
+
+* Battery Thinkpad x230i
+* iGPU: brightness HD4000, Low resolution
+* RTC fix 
+* Fix Mutex with non-zero synclevel
+* Ivy Bridge = 7 series USB
+* USB3 instant wake 0x0
+* If using DSDT inject use HDEF + IRQ provided w/ patcher
+
+--------------------------------------------------------------------------------------------
+### Sleep issues
+
+* CodecCommander loaded in S/L/E w/ kextutility
+* CodecCommander loaded with Kextbeast + repair permissions/cache script
+
+--------------------------------------------------------------------------------------------
 
