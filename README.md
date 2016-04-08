@@ -44,16 +44,16 @@
 | GPU | Graphics not working natively | Apply DSDT patches for iGPU, brightness HD4000 + Low resolution | 
 | USB | Ports not working/keeps device awake | Apply DSDT patches Ivy Bridge = Intel 7 series USB | 
 --------------------------------------------------------------------------------------------
-### AppleHDA injection methods
+### AppleHDA injection methods (Choose one from the list)
 1. DSDT patch HDEF + IRQ (layout-id is in hex) - preferred
 2. Clover config.plist
 3. HDAEnabler.kext 
 
 --------------------------------------------------------------------------------------------
 
-### AppleHDA patching methods
-1. Modify AppleHDA by itself, rewrite AppleHDA.kext in /S/L/E, injecting with any method
-2. Live patch AppleHDA + injecting DummyHDA.kext with any method
+### AppleHDA patching methods (Choose one from the list)
+1. Modify AppleHDA.kext by itself, rewrite AppleHDA.kext in /S/L/E, injecting with any method
+2. Live patch AppleHDA.kext + injecting DummyHDA.kext with any method
 
 --------------------------------------------------------------------------------------------
 
@@ -62,11 +62,12 @@
 * CodecCommander loaded in /S/L/E w/ Kext Utility or with KextBeast + repair permissions/cache script
 
 --------------------------------------------------------------------------------------------
-### Commands to check AppleHDA, if anything returns empty = game over, restore default AppleHDA in /S/L/E 
+### Commands to check AppleHDA, if anything returns empty = game over, restore default AppleHDA in /S/L/E and restart
 
-* kextstat|grep -y applehda 
+* Check AppleHDA kext load status: kextstat|grep -y applehda 
 * sudo touch /System/Library/Extensions && sudo kextcache -u / 
-* Use DCPIManager to check, if Codec ID, revision, codec name are empty = bad
+* Use DCPIManager to check audio devices and if Codec ID, revision, codec name are empty = bad
+* Check custom loaded sexts: kextstat | grep -v com.apple
 
 --------------------------------------------------------------------------------------------
 
