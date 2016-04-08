@@ -1,4 +1,4 @@
-## Thinkpad x230 OS X - Running fully functional, native.
+## Thinkpad x230 OS X - Running fully functional, natively.
 
 ### Specs
 * Model: x230 2320-32U
@@ -42,9 +42,35 @@
 
 --------------------------------------------------------------------------------------------
 
-### AppleHDA injection methods:
+### AppleHDA injection methods
 1. DSDT patch HDEF + IRQ (layout-id is in hex) - preferred
 2. Clover config.plist
 3. HDAEnabler.kext 
 
+--------------------------------------------------------------------------------------------
+
+### BIOS settings
+| Item | Setting |
+| ------------- | ------------ |
+| Config/Network/Wake On Lan | Disabled |
+| USB UEFI BIOS Support | Enabled |
+| Always On USB | Disabled | 
+| USB 3.0 Mode | Enabled | 
+| Power Intel Rapid Start Technology | Disabled | 
+| Serial SATA SATA Controller Mode Option | AHCI |
+| Security Predesktop Authentication | Disabled |
+| Security Chip | Disabled | 
+| Memory Protection Execution Prevention | Enabled | 
+| Virtualization | Disabled |
+| Fingerprint Reader | Disabled | 
+| Anti Theft Current Setting | Disabled | 
+| Computrace | Disabled | 
+| Secure Boot | Disabled | 
+| Startup Network Boot | PCI Lan | 
+| UEFI/Legacy Boot | UEFI Only | 
+| CSM | Disabled | 
+| CSM Support | Disabled | 
+| Boot Mode | Quick |
+
+--------------------------------------------------------------------------------------------
 
