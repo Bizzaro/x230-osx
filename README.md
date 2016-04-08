@@ -28,6 +28,7 @@
 ### Bugs
 * Sound works on resume after you sleep from menu once. Afterwards, everytime lid close and resume, sound will work
 * Boot screen logo glitch, reduce with custom logo = none, config.plist in Clover edit
+* -xcpm boot argument will cause kernel panic (KP)
 
 --------------------------------------------------------------------------------------------
 ### Summary of problems and fixes
@@ -80,7 +81,8 @@
 --------------------------------------------------------------------------------------------
 ### Post-install
 1. Install Clover v2.3K R3320 UEFI .pkg - different version is OK, but must be UEFI.
-2. Patch your own DSDT's using guide on tonymacx86 from RehabMan, every system needs custom DSDT, no exceptions.
-3. Patch your own SSDT's, you could use the same if CPU models are identical.
-4. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of drive. 
+2. Config.plist can be shared if you wish, personal preferences, except injections.
+3. Patch your own DSDT's using guide on tonymacx86 from RehabMan, every system needs custom DSDT, no exceptions.
+4. Patch your own SSDT's, you could use the same if CPU models are identical.
+5. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of drive. 
 
