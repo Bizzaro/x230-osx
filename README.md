@@ -66,7 +66,6 @@
 | Secure Boot | Disabled | 
 | Startup Network Boot | PCI Lan | 
 | UEFI/Legacy Boot | UEFI Only | 
-| CSM | Disabled | 
 | CSM Support | Disabled | 
 | Boot Mode | Quick |
 
