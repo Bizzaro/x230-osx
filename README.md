@@ -118,10 +118,9 @@ Set custom logo to none in config.plist
 * If using DSDT inject use HDEF + IRQ provided w/ patcher
 
 --------------------------------------------------------------------------------------------
-### Sleep issues
+### Sound after sleep issues
 
-* CodecCommander loaded in S/L/E w/ kextutility
-* CodecCommander loaded with Kextbeast + repair permissions/cache script
+* CodecCommander loaded in S/L/E w/ kextutility or with Kextbeast + repair permissions/cache script
 
 --------------------------------------------------------------------------------------------
 
