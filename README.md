@@ -1,4 +1,4 @@
-## Thinkpad x230 OS X - Running fully functional, natively.
+## Thinkpad x230 OS X - running natively with full functionality.
 **Updated: April 25 2016**
 
 **Note:** This is **NOT** a spoonfeeding guide, other resources may be required to pull you up to speed. This page is meant to *reduce* the amount of googling and testing what works and what doesn't. 
