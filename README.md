@@ -26,6 +26,7 @@
 * Keyboard, trackpad, trackpoint
 * Sleep from menu + lid close sleep
 * HD4000 (Brightness control with fn + k, fn + p and QE/CI active, external display with Mini-DP)
+* Sound over Mini-DP -> HDMI 
 * Wireless (Using USB mini WLAN adapter with native drivers from manufacturer)
 * Sound/Audio, automatic headphone detection, mute, volume controls fully working
 * Webcam
