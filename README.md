@@ -74,7 +74,7 @@
 --------------------------------------------------------------------------------------------
 ### Commands to check AppleHDA, if anything returns empty = game over, restore default AppleHDA in /S/L/E and restart process
 
-* Check AppleHDA kext load status: kextstat|grep -y applehda 
+* Check AppleHDA kext load status: kextstat | grep -y applehda 
 * sudo touch /System/Library/Extensions && sudo kextcache -u / 
 * Use DCPIManager to check audio devices and if codec ID, revision, codec name are empty = bad
 * Check custom loaded kext status: kextstat | grep -v com.apple
