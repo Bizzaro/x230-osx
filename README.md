@@ -13,7 +13,6 @@
 * EFI BIOS: 2.65 
 * ECV BIOS: 1.14 
 
-![alt text](https://raw.githubusercontent.com/Bizzaro/x230-osx/master/Screenshots/Screen%20Shot%202016-04-08%20at%204.56.38%20AM.png)
 ![alt text](https://raw.githubusercontent.com/Bizzaro/x230-osx/master/Screenshots/IMG_20160408_135226.jpg)
 --------------------------------------------------------------------------------------------
 ### Working
@@ -28,9 +27,10 @@
 * Wireless (Using USB mini WLAN adapter with native drivers from manufacturer)
 * Sound/Audio, automatic headphone detection, mute, volume controls fully working
 * Webcam
+* Bluetooth
 
 ### Not working
-* Bluetooth/built in mini-PCIE WLAN card (could swap card with Atheros 9280 and rebrand as Intel 6300)
+* Built in mini-PCIE WLAN card (could swap card with Atheros 9280 and rebrand as Intel 6300)
 * Card reader (never tried)
 * Fingerprint reader 
 * VGA (does not exist on real apple computers)
