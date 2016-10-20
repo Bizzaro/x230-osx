@@ -50,7 +50,7 @@
 | Battery and PM | No battery status, no native PM | Apply DSDT patch with Thinkpad x230i + Fix Mutex with non-zero synclevel | 
 | GPU | Graphics not working natively | Apply DSDT patches for iGPU, brightness HD4000 + Low resolution | 
 | USB | Ports not working/keeps device awake | Apply DSDT patches Ivy Bridge = Intel 7 series USB | 
-| Sleep/power LED | LED remains in blinking state after wake | add these lines into method _WAK after NVSS:<BR/>\_SB.PCI0.LPC.EC.LED (Zero, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x0A, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x07, Zero)|
+| Sleep/power LED | LED remains in blinking state after wake | #add these lines into method _WAK after NVSS:<BR/>\_SB.PCI0.LPC.EC.LED (Zero, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x0A, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x07, Zero)|
 | Brightness Control | Brightness control keys don't respond | # _Q15 (Fn+F8) brightness down key<BR/>into method label _Q15 replace_content<BR/>begin<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0205)\n<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0285)\n<BR/>end;<BR/><BR/># _Q14 (Fn+F9) brightness up key<BR/>into method label _Q14 replace_content<BR/>begin<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0206)\n<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0286)\n<BR/>end;|
 --------------------------------------------------------------------------------------------
 ### AppleHDA injection methods (choose one from the list)
