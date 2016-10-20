@@ -3,8 +3,6 @@
 
 **Note:** This is **NOT** a spoonfeeding guide, other resources may be required to pull you up to speed. This page is meant to *reduce* the amount of googling and testing what works and what doesn't. 
 
-**Time taken to get system fully working from scratch:** ~30 hours *(shouldn't take you this long since everything I encountered is listed here)*
-
 ### Specs
 * Model: x230 2320-32U
 * CPU: Intel i5-3210M 2.50GHz
@@ -41,7 +39,6 @@
 * Sound works on resume after you sleep from menu. Afterwards, lid close and resume, sound will work
 * Boot screen logo glitch, reduce with custom logo = none, config.plist in Clover edit
 * -xcpm boot argument will cause kernel panic (KP)
-* Sleep LED/power LED will remain in blinking state after wake 
 
 --------------------------------------------------------------------------------------------
 ### Summary of problems and fixes
@@ -53,6 +50,8 @@
 | Battery and PM | No battery status, no native PM | Apply DSDT patch with Thinkpad x230i + Fix Mutex with non-zero synclevel | 
 | GPU | Graphics not working natively | Apply DSDT patches for iGPU, brightness HD4000 + Low resolution | 
 | USB | Ports not working/keeps device awake | Apply DSDT patches Ivy Bridge = Intel 7 series USB | 
+| Sleep/power LED | LED remains in blinking state after wake | add these lines into method _WAK after NVSS:<BR/>\_SB.PCI0.LPC.EC.LED (Zero, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x0A, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x07, Zero)|
+| hi | hi | hi |
 --------------------------------------------------------------------------------------------
 ### AppleHDA injection methods (choose one from the list)
 1. DSDT patch HDEF + IRQ (layout-id is in hex) - preferred
