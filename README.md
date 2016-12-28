@@ -111,7 +111,7 @@
 
 ## Install
 
-1. Follow tonymacx86 Unibeast steps to make your USB. (http://www.tonymacx86.com/el-capitan-desktop-guides/172672-unibeast-install-os-x-el-capitan-any-supported-intel-based-pc.html).
+1. Follow tonymacx86 Unibeast steps to make your USB. (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/).
 
 2.  Mount EFI System Partition of USB with EFI Mounter v3 (In tools folder).
 
