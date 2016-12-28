@@ -1,0 +1,252 @@
+0:100  0:100  MemLog inited, TSC freq: 2893426841
+0:100  0:000  
+0:100  0:000  Now is 14.5.2016,  12:56:29 (GMT)
+0:100  0:000  Starting Clover rev 3504 on Lenovo EFI
+0:100  0:000  Build with: [Args: ./ebuild.sh | Command: build -D USE_LOW_EBDA -p Clover/Clover.dsc -a X64 -b RELEASE -t XCODE5 -n 5 | OS: 10.11.5 | XCODE: 7.3]
+0:100  0:000  SelfDevicePath=PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0x0,0x0)\HD(1,GPT,4E37F64F-8E69-480C-AA98-87BF54741A66,0x800,0xAF000) @D3A3ED18
+0:100  0:000  SelfDirPath = \EFI\BOOT
+0:106  0:006  Total Memory Slots Count = 2
+0:106  0:000  Type 17 Index = 0
+0:106  0:000  SmbiosTable.Type17->Speed = 1600MHz
+0:106  0:000  SmbiosTable.Type17->Size = 4096MB
+0:106  0:000  SmbiosTable.Type17->Bank/Device = BANK 0 ChannelA-DIMM0
+0:106  0:000  SmbiosTable.Type17->Vendor = Samsung
+0:106  0:000  SmbiosTable.Type17->SerialNumber = 3481BE09
+0:106  0:000  SmbiosTable.Type17->PartNumber = M471B5273DH0-CK0  
+0:106  0:000  Type 17 Index = 1
+0:106  0:000  SmbiosTable.Type17->Speed = 1600MHz
+0:106  0:000  SmbiosTable.Type17->Size = 4096MB
+0:106  0:000  SmbiosTable.Type17->Bank/Device = BANK 2 ChannelB-DIMM0
+0:106  0:000  SmbiosTable.Type17->Vendor = Kingston
+0:106  0:000  SmbiosTable.Type17->SerialNumber = BE08F609
+0:106  0:000  SmbiosTable.Type17->PartNumber = 99U5428-049.A00LF 
+0:106  0:000  Boot status=0
+0:106  0:000  Clover revision: 3504  running on 2306CTO
+0:106  0:000  ... with board 2306CTO
+0:106  0:000  CPU Vendor = 756E6547 Model=306A9
+0:106  0:000  got cores from CPUID_1 = 0
+0:106  0:000  The CPU supported turbo
+0:106  0:000  BrandString = Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz
+0:106  0:000  MSR 0xE2 before patch 1E008404
+0:106  0:000  MSR 0xE2 is locked, PM patches will be turned on
+0:106  0:000  MSR 0xE4              00020414
+0:106  0:000  MSR 0xCE              00080C10_F0011D00
+0:106  0:000  non-usable FLEX_RATIO = 190000
+0:106  0:000  corrected FLEX_RATIO = 180000
+0:106  0:000  MSR 0x1B0             00000000
+0:106  0:000  FSBFrequency=100MHz DMIvalue=100000kHz
+0:106  0:000  Corrected FSBFrequency=100MHz
+0:106  0:000  Vendor/Model/Stepping: 0x756E6547/0x3A/0x9
+0:106  0:000  Family/ExtFamily: 0x6/0x0
+0:106  0:000  MaxDiv/MinDiv: 29.0/12
+0:106  0:000  Turbo: 34/34/34/36
+0:106  0:000  Features: 0xBFEBFBFF
+0:106  0:000  Threads: 4
+0:106  0:000  Cores: 2
+0:106  0:000  FSB: 100 MHz
+0:106  0:000  CPU: 2900 MHz
+0:106  0:000  TSC: 2900 MHz
+0:106  0:000  PIS: 400 MHz
+0:106  0:000  PCI (00|00:1D.00) : 8086 1E26 class=0C0320
+0:106  0:000  PCI (00|00:1A.00) : 8086 1E2D class=0C0320
+0:106  0:000  PCI (00|00:14.00) : 8086 1E31 class=0C0330
+0:106  0:000  PCI (00|00:1C.00) : 8086 1E10 class=060400
+0:106  0:000  PCI (00|02:00.00) : 1180 E822 class=088001
+0:106  0:000  PCI (00|00:02.00) : 8086 0166 class=030000
+0:106  0:000  Found GFX model=Intel HD Graphics 4000
+0:106  0:000  PCI (00|00:1F.00) : 8086 1E55 class=060100
+0:106  0:000  PCI (00|00:1C.01) : 8086 1E12 class=060400
+0:106  0:000  PCI (00|00:1C.02) : 8086 1E14 class=060400
+0:106  0:000  PCI (00|00:1F.02) : 8086 1E03 class=010601
+0:106  0:000  PCI (00|00:00.00) : 8086 0154 class=060000
+0:106  0:000  PCI (00|00:16.00) : 8086 1E3A class=078000
+0:106  0:000  PCI (00|00:16.01) : FFFF FFFF class=FFFFFF
+0:106  0:000  PCI (00|00:19.00) : 8086 1502 class=020000
+0:106  0:000  LAN 0, Vendor=8086, MMIO=F2500000
+0:106  0:000  PCI (00|00:1B.00) : 8086 1E20 class=040300
+0:107  0:000  PCI (00|03:00.00) : 8086 0085 class=028000
+0:107  0:000  PCI (00|00:1F.03) : 8086 1E22 class=0C0500
+0:107  0:000  PCI (00|00:1F.06) : FFFF FFFF class=FFFFFF
+0:107  0:000  Clover load options size = 0 bytes
+0:109  0:002  Using OEM config.plist at path: EFI\CLOVER\config.plist
+0:109  0:000  EFI\CLOVER\config.plist loaded: Success
+0:110  0:000  Found theme directory: yosemitelogin
+0:110  0:000  Found theme directory: applestyle
+0:110  0:000  Found theme directory: embedded
+0:111  0:000  Found theme directory: random
+0:111  0:000  Loading early settings
+0:111  0:000  timeout set to -1
+0:111  0:000  Custom boot CUSTOM_BOOT_DISABLED (0x0)
+0:111  0:000  ForceKextsToLoad: 1 requested
+0:111  0:000  ForceKextsToLoad 0: System\Library\Extensions\IONetworkingFamily.kext
+0:111  0:000  KextsToPatch: 7 requested
+0:111  0:000  KextsToPatch 0: IOGraphicsFamily (Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)) Kext bin patch, data len: 5
+0:111  0:000  KextsToPatch 1: AppleIntelFramebufferCapri (HDMI-audio HD4000 0x01660003, port 0205) Kext bin patch, data len: 12
+0:111  0:000  KextsToPatch 2: AppleIntelFramebufferCapri (HDMI-audio HD4000 0x01660003, port 0406) Kext bin patch, data len: 12
+0:111  0:000  KextsToPatch 3: IOAHCIBlockStorage (Enable TRIM for SSD) Kext bin patch, data len: 11
+0:111  0:000  KextsToPatch 4: IOGraphicsFamily (Boot graphics glitch, 10.10.2/10.10.3) Kext bin patch, data len: 5
+0:111  0:000  KextsToPatch 5: AppleUSBXHCIPCI (Increase 15 port limit to 30 in AppleUSBXHCIPCI) Kext bin patch, data len: 7
+0:111  0:000  KextsToPatch 6: AppleIntelFramebufferCapri (HDMI-audio HD4000 0x01660003, port 0304) Kext bin patch, data len: 12
+0:111  0:000  Default theme: YosemiteLogin
+0:111  0:000  LoadDrivers() start
+0:111  0:000  Loading CsmVideoDxe-64.efi  status=Success
+0:130  0:018   - driver needs connecting
+0:130  0:000  Loading DataHubDxe-64.efi  status=Success
+0:153  0:023  Loading EmuVariableUefi-64.efi  status=Success
+0:171  0:018  EmuVariableUefi Initialize: VariableCommonInitialize = Success, orig services stored, install gEmuVariableControlProtocolGuid = Success
+0:172  0:000  Loading FSInject-64.efi  status=Success
+0:191  0:018  Loading OsxAptioFixDrv-64.efi  status=Success
+0:210  0:019  Loading OsxFatBinaryDrv-64.efi  status=Success
+0:229  0:018  Loading PartitionDxe-64.efi  status=Success
+0:247  0:018   - driver needs connecting
+0:247  0:000  Loading VBoxHfs-64.efi  status=Success
+0:266  0:018   - driver needs connecting
+0:266  0:000  Loading HFSPlus.efi  status=Success
+0:285  0:018   - driver needs connecting
+0:285  0:000  Loading NTFS.efi  status=Success
+0:304  0:019   - driver needs connecting
+0:304  0:000  5 drivers needs connecting ...
+0:304  0:000  PlatformDriverOverrideProtocol not found. Installing ... Success
+0:304  0:000  Partition driver loaded: CD disconnect Success
+0:304  0:000  HFS+ driver loaded 
+0:305  0:000  Video driver loaded: disconnect Success
+0:562  0:257  Searching for invalid DiskIo BY_DRIVER connects: not found, all ok
+6:924  6:361  LoadDrivers() end
+6:924  0:000  EmuVariable InstallEmulation: orig vars copied, emu.var.services installed, CreateEvent VirtualAddressChange = Success, CreateEvent ExitBootServices = Success, set Status=Success
+6:951  0:027  SetScreenResolution: 1366x768 - already set
+6:951  0:000  Console modes reported: 6, available modes:
+6:951  0:000    Mode 1: 80x25 (current mode)
+6:951  0:000    Mode 3: 170x40
+6:951  0:000    Mode 4: 80x25
+6:951  0:000    Mode 5: 100x31
+6:951  0:000    Mode 6: 128x40
+6:951  0:000  reinit: self device path=PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0x0,0x0)\HD(1,GPT,4E37F64F-8E69-480C-AA98-87BF54741A66,0x800,0xAF000)
+6:952  0:000  MAC address of LAN #0= 3C:97:0E:30:97:69:
+6:952  0:000  MAC address of LAN #1= 3C:97:0E:30:97:69:
+6:952  0:000  MAC address of LAN #2= 3C:97:0E:30:97:69:
+6:952  0:000  ScanSPD() start
+6:952  0:000  SMBus CmdReg: 0x3
+6:952  0:000  Scanning SMBus [8086:1E22], mmio: 0xF2534004, ioport: 0xEFA0, hostc: 0x1
+6:952  0:000  Slots to scan [8]...
+6:953  0:000  SPD[0]: Type 11 @0x50 
+6:972  0:019  Not using XMP because it is not present
+6:972  0:000  DDR speed 1600MHz 
+6:972  0:000  Slot: 0 Type 24 4096MB 1600MHz Vendor=Samsung PartNo=M471B5273DH0-CK0 SerialNo=030408010B0E0009 
+6:972  0:000  SPD[1]: Type 11 @0x51 
+6:991  0:019  Not using XMP because it is not present
+6:991  0:000  DDR speed 1600MHz 
+6:991  0:000  Slot: 1 Type 24 4096MB 1600MHz Vendor=Kingston PartNo=99U5428-049.A00LF SerialNo=0B0E00080F060009 
+6:992  0:000  SPD[4]: Type 82 @0x54 
+6:993  0:000  SPD[5]: Type 82 @0x55 
+6:993  0:000  SPD[6]: Type 78 @0x56 
+6:993  0:000  ScanSPD() end
+7:006  0:012  Get Acpi Tables List from RSDT:
+7:006  0:000   Found table: FACP  TP-G2    len=244
+7:006  0:000   Found table: SLIC  TP-G2    len=374
+7:006  0:000   Found table: TCPA  LENOVO len=50
+7:006  0:000   Found table: SSDT  TP-SSDT2 len=1032
+7:006  0:000   Found table: SSDT  TP-SSDT1 len=51
+7:006  0:000   Found table: SSDT  SataAhci len=1960
+7:006  0:000   Found table: HPET  TP-G2    len=56
+7:006  0:000   Found table: APIC  TP-G2    len=152
+7:006  0:000   Found table: MCFG  TP-G2    len=60
+7:006  0:000   Found table: ECDT  TP-G2    len=82
+7:006  0:000   Found table: FPDT  TP-G2    len=100
+7:006  0:000   Found table: ASF!  TP-G2    len=165
+7:006  0:000   Found table: UEFI  TP-G2    len=62
+7:006  0:000   Found table: UEFI  COMBUF len=66
+7:006  0:000   Found table: POAT  TP-G2    len=85
+7:006  0:000   Found table: SSDT  Cpu0Ist len=3193
+7:006  0:000   Found table: SSDT  CpuPm len=2691
+7:006  0:000   Found table: UEFI  TP-G2    len=678
+7:006  0:000   Found table: DBG2  TP-G2    len=233
+7:006  0:000   Found table: BGRT  TP-G2    len=56
+7:006  0:000  Calibrated TSC frequency =2893426841 =2893MHz
+7:006  0:000  Loading main settings
+7:006  0:000  USB FixOwnership: true
+7:006  0:000  Dropping 1 tables
+7:006  0:000  Drop table 0 signature="DMAR" (52414D44)
+7:006  0:000  set table: 52414D44,                0 to drop:
+7:006  0:000  Config set Fixes will override FixMask mask!
+7:006  0:000     final mask=80001026
+7:006  0:000  PatchesDSDT: 3 requested
+7:006  0:000   DSDT bin patch #0  lenToFind=4  lenToReplace=4
+7:006  0:000   patch disabled, skipped
+7:006  0:000   DSDT bin patch #2  lenToFind=4  lenToReplace=4
+7:006  0:000  Config set EnableC6: +
+7:006  0:000  Config set EnableC4: +
+7:006  0:000  Config set EnableC2: +
+7:006  0:000  Config set PluginType=1
+7:006  0:000  Config set ChassisType=0x8
+7:006  0:000  found 7 volumes with blockIO
+7:006  0:000   0. Volume:
+7:006  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0x0,0x0)
+7:191  0:184   1. Volume:
+7:191  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0x0,0x0)\HD(1,GPT,4E37F64F-8E69-480C-AA98-87BF54741A66,0x800,0xAF000)
+7:191  0:000    Result of bootcode detection: bootable unknown (legacy)
+7:191  0:000    This is SelfVolume !!
+7:191  0:000   2. Volume:
+7:191  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0x0,0x0)\HD(2,GPT,9246C35F-BE41-4B6D-9F78-3E56E373D75A,0xAF800,0x1BD3ED68)
+7:192  0:000   3. Volume:
+7:192  0:000    PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0x0,0x0)\HD(3,GPT,D0482537-EA47-433D-8B80-213BD390F3DA,0x1BDEE568,0x135F20)
+7:194  0:002   4. Volume:
+7:194  0:000    PciRoot(0x0)\Pci(0x14,0x0)\USB(0x0,0x0)
+7:194  0:000    found optical drive
+7:295  0:100  Detected name LINUX
+7:295  0:000  Found Linux DVD
+7:295  0:000    Result of bootcode detection: bootable unknown (linux)
+7:295  0:000   5. Volume:
+7:295  0:000    PciRoot(0x0)\Pci(0x14,0x0)\USB(0x0,0x0)\CDROM(0x0)
+7:295  0:000    found optical drive
+7:338  0:042  Detected name 
+7:338  0:000    Result of bootcode detection: bootable unknown (legacy)
+7:338  0:000   6. Volume:
+7:338  0:000    PciRoot(0x0)\Pci(0x14,0x0)\USB(0x0,0x0)\CDROM(0x1)
+7:338  0:000    found optical drive
+7:507  0:168  PutNvramPlistToRtVars: nvram.plist not found
+7:507  0:000  Using theme 'YosemiteLogin' (EFI\CLOVER\themes\YosemiteLogin)
+7:507  0:000  OS main and drive as badge
+7:509  0:002  Choosing theme YosemiteLogin
+7:509  0:000  Custom entries start
+7:509  0:000  Custom entries finish
+7:509  0:000  Scanning loaders...
+7:509  0:000   0: 'Whole Disc Boot' no file system
+7:509  0:000   1: 'EFI'
+7:512  0:002   2: 'El Captian HD'
+7:513  0:001      AddLoaderEntry for Volume Name=El Captian HD
+7:515  0:001       hibernated: set as never
+7:517  0:002   3: 'Recovery HD'
+7:518  0:000      AddLoaderEntry for Volume Name=Recovery HD
+7:519  0:001   4: 'LINUX' no file system
+7:519  0:000   5: '' no file system
+7:519  0:000   6: 'OCS-EFI'
+7:537  0:017      AddLoaderEntry for Volume Name=OCS-EFI
+7:538  0:001  Custom legacy start
+7:538  0:000  Custom legacy end
+7:538  0:000  Scanning legacy ...
+7:538  0:000   0: 'Whole Disc Boot' (legacy) not legacy
+7:538  0:000   1: 'EFI' (legacy) not legacy
+7:538  0:000   2: 'El Captian HD' (legacy) not legacy
+7:538  0:000   3: 'Recovery HD' (legacy) not legacy
+7:538  0:000   4: 'LINUX' (linux) add legacy
+7:538  0:000   added 'Boot Legacy OS from LINUX' OSType=4 Icon=linux
+7:538  0:000   5: '' (legacy) not legacy
+7:538  0:000   6: 'OCS-EFI' (legacy) not legacy
+7:538  0:000  Custom tool start
+7:538  0:000  Custom tool end
+7:538  0:000  found tool \EFI\CLOVER\tools\Shell64U.efi
+7:538  0:000  Checking EFI partition Volume 1 for Clover
+7:538  0:000   Found Clover
+7:539  0:000  EmuVariable UninstallEmulation: CloseEvent = Success, original var services restored
+7:540  0:001  EmuVariable InstallEmulation: orig vars copied, emu.var.services installed, CreateEvent VirtualAddressChange = Success, CreateEvent ExitBootServices = Success, set Status=Success
+7:568  0:028  GetEfiBootDeviceFromNvram: efi-boot-device-data not found
+7:568  0:000  EfiBootVolume not found
+7:568  0:000   found entry 0. 'Boot Mac OS X from El Captian HD', Volume 'El Captian HD', DevicePath 'PciRoot(0x0)\Pci(0x1F,0x2)\Sata(0x0,0x0,0x0)\HD(2,GPT,9246C35F-BE41-4B6D-9F78-3E56E373D75A,0xAF800,0x1BD3ED68)\System\Library\CoreServices\boot.efi'
+7:568  0:000  EmuVariable UninstallEmulation: CloseEvent = Success, original var services restored
+7:568  0:000  DefaultIndex=0 and MainMenu.EntryCount=10
+7:755  0:186  Found Mouse device:
+7:755  0:000  GUI ready
+12:108  4:353  BootOption of the entry is empty
+12:108  0:000  EmuVariable UninstallEmulation: CloseEvent = Invalid Parameter, original var services restored
+12:109  0:000  Removed efi-boot-device-data variable: Not Found
+12:438  0:329  CDROMBoot: Booting LBA 129 @7C00 L2000

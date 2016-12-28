@@ -1,153 +1,128 @@
-## Thinkpad x230 OS X - running natively with full functionality.
-**Updated: April 25 2016**
+# Thinkpad X230 Clover Config for macOS 10.12.2
 
-**Note:** This is **NOT** a spoonfeeding guide, other resources may be required to pull you up to speed. This page is meant to *reduce* the amount of googling and testing what works and what doesn't. 
 
-### Specs
-* Model: x230 2320-32U
-* CPU: Intel i5-3210M 2.50GHz
-* RAM: 12GB DDR3 
-* Storage: 128GB SSD
-* OS: OS X El Capitan 10.11.4
-* Bootloader: Clover v2.3K R3320 UEFI
-* EFI BIOS: 2.65 
-* ECV BIOS: 1.14 
+**Run macOS Sierra on your ThinkPad X230 **
 
-![alt text](https://raw.githubusercontent.com/Bizzaro/x230-osx/master/Screenshots/IMG_20160408_135226.jpg)
---------------------------------------------------------------------------------------------
-### Working
-* Power Management (C/P-states, fan RPM, speedstep, etc)
-* Ethernet
-* USB ports
-* Battery status
-* Keyboard, trackpad, trackpoint
-* Sleep from menu + lid close sleep
-* HD4000 (Brightness control with fn + k, fn + p and QE/CI active, external display with Mini-DP)
-* Sound over Mini-DP -> HDMI 
-* Wireless (Using USB mini WLAN adapter with native drivers from manufacturer)
-* Sound/Audio, automatic headphone detection, mute, volume controls fully working
-* Webcam
-* Bluetooth
+**Last Edit 2016/12/28**
 
-### Not working
-* Built in mini-PCIE WLAN card (could swap card with Atheros 9280 and rebrand as Intel 6300)
-* Card reader (never tried)
-* Fingerprint reader 
-* VGA (does not exist on real apple computers)
+## Introduction
 
-### Bugs
-* Sound works on resume after you sleep from menu. Afterwards, lid close and resume, sound will work
-* Boot screen logo glitch, reduce with custom logo = none, config.plist in Clover edit
-* -xcpm boot argument will cause kernel panic (KP)
+**Note**
 
---------------------------------------------------------------------------------------------
-### Summary of problems and fixes
+ - You might have to search for extra resources online to boot your macOS 10.12.2 Installation.
+ -  The resources listed here are gathered from Rehabman, tonymacx86 and different sources. It's based on Bizzaro's x230-osx project. Link here: https://github.com/Bizzaro/x230-osx
 
-| Feature     | Problem        | Fix (tldr DSDT patches are your friend) |
-| ------------- | ------------    | ----- |
-| Sleep | Instant wake, device doesn't stay asleep | Apply DSDT USB3 instant wake 0x0, RTC patches |
-| Audio | No devices in sound preferences | Inject patched AppleHDA, codec is ALC297VC_v3 (layout-id in DSDT is hex, LayoutID in AppleHDA is dec) |
-| Battery and PM | No battery status, no native PM | Apply DSDT patch with Thinkpad x230i + Fix Mutex with non-zero synclevel | 
-| GPU | Graphics not working natively | Apply DSDT patches for iGPU, brightness HD4000 + Low resolution | 
-| USB | Ports not working/keeps device awake | Apply DSDT patches Ivy Bridge = Intel 7 series USB | 
-| Sleep/power LED | LED remains in blinking state after wake | # add these lines into method _WAK after NVSS:<BR/>\_SB.PCI0.LPC.EC.LED (Zero, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x0A, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x07, Zero)|
-| Brightness Control | Brightness control keys don't respond | # _Q15 (Fn+F8) brightness down key<BR/>into method label _Q15 replace_content<BR/>begin<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0205)\n<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0285)\n<BR/>end;<BR/><BR/># _Q14 (Fn+F9) brightness up key<BR/>into method label _Q14 replace_content<BR/>begin<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0206)\n<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0286)\n<BR/>end;|
---------------------------------------------------------------------------------------------
-### AppleHDA injection methods (choose one from the list)
-1. DSDT patch HDEF + IRQ (layout-id is in hex) - preferred
-2. Clover config.plist
-3. HDAEnabler.kext 
+------
 
---------------------------------------------------------------------------------------------
+**Guides/Examples (Credit Goes to tonymacx86 , InsanelyMac , Gurus , Rehabman , etc)**
 
-### AppleHDA patching methods (choose one from the list)
-1. Modify AppleHDA.kext by itself, rewrite AppleHDA.kext in /S/L/E, injecting with any method
-2. Live patch AppleHDA.kext + injecting DummyHDA.kext with any method
+ - Brief Introduction : https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/
+ -  Unsolved Problems : https://www.tonymacx86.com/threads/readme-common-some-unsolved-problems-in-10-12-sierra.202316/
+ - DSDT / SSDT guides : https://www.tonymacx86.com/threads/guide-patching-laptop-dsdt-ssdts.152573/
+ - Booting the OS X Installer with Clover : https://www.tonymacx86.com/threads/guide-booting-the-os-x-installer-on-laptops-with-clover.148093/
+ - Airport Injection : http://www.insanelymac.com/forum/topic/292542-airport-pcie-half-mini/
+ - Toleda's Wireless_Half_Mini Repository : https://github.com/toleda/wireless_half-mini
+ 
 
---------------------------------------------------------------------------------------------
+## Summary
 
-### Sound after sleep issues
+**Hardware**
 
-* CodecCommander loaded in /S/L/E w/ Kext Utility or with KextBeast + repair permissions/cache script
+ - CPU : Intel Core i7 - 3520M
+ - RAM : 8GB DDR3 1600MHz SO-DIMM
+ - Storage : 250GB Intel SSD SATA 6Gb/s
+ - Operating System : macOS Sierra 10.12.2
+ - Bootloader : Clover v2.3k r3763 
+ - EFI Firmware : 2.67
+ - EC Firmware : 1.14
+ - WLAN Card : AzureWave Broadcom BCM94352HMB 
 
---------------------------------------------------------------------------------------------
-### Commands to check AppleHDA, if anything returns empty = game over, restore default AppleHDA in /S/L/E and restart process
+-----
 
-* Check AppleHDA kext load status: kextstat | grep -y applehda 
-* sudo touch /System/Library/Extensions && sudo kextcache -u / 
-* Use DCPIManager to check audio devices and if codec ID, revision, codec name are empty = bad
-* Check custom loaded kext status: kextstat | grep -v com.apple
+**Working**
 
---------------------------------------------------------------------------------------------
+ - Native Power Management 
+ - Ethernet 
+ - USB ports 
+ - Battery status
+ - Keyboard, TrackPoint
+ - Intel Graphics HD 4000 
+ - Backlight Control
+ - Webcam
+ - Bluetooth
+ - Shutdown / Reboot
+ - Audio
+ - SSD Trimming
+ - Microphone
+ - AirDrop 
+ - Broadcom 94352HMB WLAN card
+ - Bluetooth
+ - Appstore
+ - iCloud
+ 
+-----
 
-### BIOS settings
-| Item | Setting |
-| ------------- | ------------ |
-| Config/Network/Wake On Lan | Disabled |
-| USB UEFI BIOS Support | Enabled |
-| Always On USB | Disabled | 
-| USB 3.0 Mode | Enabled | 
-| Power Intel Rapid Start Technology | Disabled | 
-| Serial SATA Controller Mode Option | AHCI |
-| Security Predesktop Authentication | Disabled |
-| Security Chip | Disabled | 
-| Memory Protection Execution Prevention | Enabled | 
-| Virtualization | Disabled |
-| Fingerprint Reader | Disabled | 
-| Anti Theft | Disabled | 
-| Computrace | Disabled | 
-| Secure Boot | Disabled | 
-| Startup Network Boot | PCI Lan | 
-| UEFI/Legacy Boot | UEFI Only | 
-| CSM Support | Disabled | 
-| Boot Mode | Quick |
+**Not Working**
 
---------------------------------------------------------------------------------------------
-### Install
-1. Follow tonymacx86 Unibeast steps to make your USB (I don't personally use MultiBeast).
-http://www.tonymacx86.com/el-capitan-desktop-guides/172672-unibeast-install-os-x-el-capitan-any-supported-intel-based-pc.html
-2. Mount EFI partition of USB with EFI Mounter v3 (from tonymacx86).
-3. Copy Kexts to Kexts folder on the EFI partition.
-4. Change BIOS settings (settings key is F1).
-5. Boot USB (boot menu key is F12).
+ - VGA Port
+ - Ricoh Card Reader
+ - Fingerprint Reader
+ 
+-----
 
---------------------------------------------------------------------------------------------
-### Post-install
-1. Install Clover v2.3K R3320 UEFI .pkg - different version is OK, but must be UEFI.
-2. Config.plist can be shared if you wish, personal preferences, except injections.
-3. Patch your own DSDT's using guide on tonymacx86 from RehabMan, every system needs custom DSDT, no exceptions.
-http://www.tonymacx86.com/el-capitan-laptop-support/152573-guide-patching-laptop-dsdt-ssdts.html
-(trust me, it's worth the read)
-4. Patch your own SSDT's, you could use the same if CPU models are identical.
-http://www.tonymacx86.com/el-capitan-laptop-support/175801-guide-native-power-management-laptops.html
-5. Put SSDT.aml and DSDT.aml inside ACPI folder, patched, in EFI partition of OS drive. 
-6. TRIM Enabler (if using SSD, every system in 2016 should have one imo) 
-7. Disable boot graphics glitches (http://www.tonymacx86.com/el-capitan-laptop-support/175799-fix-resolve-boot-screen-garble.html) and set custom logo to none in config.plist
+**Not Tested**
 
-Patch should be entered into config.plist/KernelAndKextPatches/KextsToPatch.
+ - HDMI 
+ - mini-DP
+ - Facetime
+ - iMessage
 
-Comment: Boot graphics glitch
+-----
 
-Name: IOGraphicsFamily
+**Bugs**
 
-Find: <0100007517>
+ - Boot Animation glitch 
+ - Find my mac
 
-Replace: <010000eb17>
+## Setup guide
 
---------------------------------------------------------------------------------------------
-### DSDT patches
+**BIOS Configuration**
 
-* Battery: Thinkpad x230i
-* iGPU: Brightness HD4000, Low resolution
-* RTC fix 
-* Fix Mutex with non-zero synclevel
-* Ivy Bridge = 7 series USB
-* USB3 instant wake 0x0
-* If using DSDT inject use HDEF + IRQ provided with patcher
+| Item                                                    	| Setting   	| Remarks                                                                                                       	|
+|---------------------------------------------------------	|-----------	|---------------------------------------------------------------------------------------------------------------	|
+| Config/Network/Wake On Lan                              	| Disabled  	| Not Supported.                                                                                                	|
+| Config/USB UEFI BIOS Support                            	| Enabled   	| Important for booting into USB Installer for OS X/ macOS.                                                     	|
+| Config/USB 3.0 Mode                                     	| Enabled   	| Enables USB 3.0                                                                                               	|
+| Config/Power/Intel SpeedStep Technology                 	| Enabled   	| Enables Intel SpeedStep.                                                                                      	|
+| Config/Power/Intel Rapid Start Technology               	| Disabled  	| This feature requires a hibernation partition (0xA0). Not supported on OS X / macOS.                          	|
+| Config/Power/CPU Power Management                       	| Enabled   	| Enables CPU Power Management.                                                                                 	|
+| Config/Serial ATA (SATA)/SATA Controller Mode Option    	| AHCI      	| Enables AHCI which is better for SSDs and HDDs.                                                               	|
+| Security/Predesktop Authentication                      	| Optional  	| Fingerprint is not supported on macOS / OS X but you can still use it for waking your ThinkPad.               	|
+| Security/Security Chip                                  	| Disabled  	| Disable it if you have a modified UEFI Firmware.                                                              	|
+| Security/Memory Protection/Execution Prevention         	| Enabled   	| This enables NX which is required for macOS / OS X installations.                                             	|
+| Security/Virtualization/Intel Virtualization Technology 	| Enabled   	| Delete boot argument named "dart=0" in config.plist if you set this as Disabled.                              	|
+| Security/Virtualization/Intel VT-d Feature              	| Enabled   	| Delete boot argument named "dart=0" in config.plist if you set this as Disabled.                              	|
+| Security/Secure Boot/Secure Boot                        	| Disabled  	| Not supported by Clover.                                                                                      	|
+| Startup/Boot Mode                                       	| Quick     	| This is optional.                                                                                             	|
+| Startup/UEFI / Legacy Boot                              	| UEFI Only 	| Reduces Confusion.                                                                                            	|
+| Startup/UEFI / Legacy Boot/CSM Support                  	| No        	| Setting this key as Yes requires a CSM Video Driver in Clover to provide proper video output on macOS / OS X. 	|
 
---------------------------------------------------------------------------------------------
-### Other resources
-http://www.tonymacx86.com/el-capitan-laptop-support/
+---------
 
-Google is your best friend.
+## Install
 
+1. Follow tonymacx86 Unibeast steps to make your USB. (http://www.tonymacx86.com/el-capitan-desktop-guides/172672-unibeast-install-os-x-el-capitan-any-supported-intel-based-pc.html).
+
+2.  Mount EFI System Partition of USB with EFI Mounter v3 (In tools folder).
+
+3.  Open /Volumes/EFI/Clover/ , Unzip and Copy the whole repository downloaded.
+
+4.  Modify UEFI Settings according to the table above. For other items. keep their default values.
+
+5.  Boot your macOS Installer USB by pressing F12 while booting.
+
+--------
+
+## Post-Install
+
+### To Be Updated. ###
