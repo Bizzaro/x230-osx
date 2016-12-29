@@ -138,7 +138,7 @@
 
 3.   Choose USB.
 
-4.   At the Boot Screen, choose your **new Sierra installation.
+4.   At the Boot Screen, choose your **new Sierra installation.**
 
 5.   Complete macOS Sierra setup
 
