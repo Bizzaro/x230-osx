@@ -12,6 +12,7 @@
  -  You might have to search for extra resources online to boot your macOS 10.12.2 Installation.
  -  The resources listed here are gathered from Rehabman, tonymacx86 and different sources. It's based on Bizzaro's x230-osx project. Link here: https://github.com/Bizzaro/x230-osx
  -  Sorry for my bad english and this complicated guide.
+ -  Install macOS Sierra might cause Data Loss. **REMEMBER TO BACKUP BEFORE INSTALLING** I am not responsible for any damage caused on your Laptop.
 
 ------
 
