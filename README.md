@@ -1,5 +1,4 @@
-# Thinkpad X230 Clover Config for macOS 10.12.2
-
+# Thinkpad X230 Clover Config for macOS 10.12 ~ 10.12.3
 English
 
 **Run macOS Sierra on your ThinkPad X230**
