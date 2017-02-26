@@ -61,13 +61,13 @@ English
  - Bluetooth
  - Appstore
  - iCloud
+ - Ricoh Card Reader
  
 -----
 
 **Not Working**
 
  - VGA Port
- - Ricoh Card Reader
  - Fingerprint Reader
  
 -----
