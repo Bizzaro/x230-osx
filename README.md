@@ -3,7 +3,7 @@ English
 
 **Run macOS Sierra on your ThinkPad X230**
 
-Video Tutorial : 
+Video Tutorial : https://www.youtube.com/watch?v=MkGsSwpwheQ
 
 **Last Edit 2017/3/5**
 
