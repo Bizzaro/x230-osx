@@ -5,7 +5,7 @@
 	<key>PatchKexts</key>
 	<dict>
 		<key>msdosfs.kext</key>
-		<true/>
+		<false/>
 		<key>AppleKextExcludeList.kext</key>
 		<true/>
 	</dict>
@@ -14,9 +14,9 @@
 		<key>-v</key>
 		<false/>
 		<key>kext-dev-mode=1</key>
-		<true/>
+		<false/>
 		<key>rootless=0</key>
-		<true/>
+		<false/>
 	</dict>
 </dict>
 </plist>
