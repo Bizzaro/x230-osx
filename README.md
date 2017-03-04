@@ -3,7 +3,9 @@ English
 
 **Run macOS Sierra on your ThinkPad X230**
 
-**Last Edit 2016/12/28**
+Video Tutorial : 
+
+**Last Edit 2017/3/5**
 
 ## Introduction
 
@@ -61,6 +63,11 @@ English
  - Bluetooth
  - Appstore
  - iCloud
+ - Siri
+ - HandOff (With AirPort)
+ - Universal Clipboard (With AirPort)
+ - Facetime
+ - iMessage
  
 -----
 
@@ -76,15 +83,13 @@ English
 
  - HDMI 
  - mini-DP
- - Facetime
- - iMessage
 
 -----
 
 **Bugs**
 
  - Boot Animation glitch 
- - Find my mac
+ - Hibernation Wake
 
 ## Setup guide
 
@@ -155,7 +160,15 @@ English
 
 11.  Open Clover Configurator, Configure SMBIOS of your machine. Guide here: https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/. **Remember to select your Machine as MacBook Pro 9,2.**
 
-12.  Reboot now if you are using i7-3520M on your ThinkPad X230.
+12.  Install VooDooHDA, this is critical to enable your speakers. (Run VooDooHDA-2.8.8.pkg)
+
+13.  Install All Necessary Kexts into /System/Library/Kexts, If you have broadcom WiFi please install FakePCID.kext included in the Kexts Video in the Tools Folder. These Kexts must be installed : realtekALC.kext , HDAEnabler.kext 
+
+14.  Go to /System/Library/Extensions/VooDooHDA.kext/Contents/. Open Info.plist with PlistEditorPro / Xcode. Locate IOKitPersonalities and Change Input Gain to 0. This fixes the static noise from Headphones as well as enabling Microphones on HeadSets and Black Left.
+
+15.  Run Kext Utility to fix permissions and rebuild Kernel Caches.
+
+16.  Reboot now if you are using i7-3520M on your ThinkPad X230.
 
 **For Users who have i3 / i5 ThinkPad X230, Please patch your SSDT to enable Native CPU Power Management**
 (Credit goes to Piker-Alpha)
@@ -174,7 +187,7 @@ English
 | Feature     | Problem        | Fixes |
 | ------------- | ------------    | ----- |
 | Sleep | Instant wake, device doesn't stay asleep | Apply DSDT USB3 instant wake 0x0, RTC patches |
-| Audio | No devices in sound preferences | Inject patched AppleHDA, codec is ALC297VC_v3 (layout-id in DSDT is hex, LayoutID in AppleHDA is dec) |
+| Audio | No devices in sound preferences | Inject patched AppleHDA, codec is ALC269VC_v3 , Layout ID is 1. Install HDAEnabler, realtekALC into /S/L/E |
 | Battery and PM | No battery status, no native PM | Apply DSDT patch with Thinkpad x230i + Fix Mutex with non-zero synclevel | 
 | GPU | Graphics not working natively | Apply DSDT patches for iGPU, brightness HD4000 + Low resolution | 
 | USB | Ports not working/keeps device awake | Apply DSDT patches Ivy Bridge = Intel 7 series USB | 
@@ -185,9 +198,9 @@ English
 --------------------------------------------------------------------------------------------
 
 ### AppleHDA injection methods (choose one from the list)
-1. DSDT patch HDEF + IRQ (layout-id is in hex) - preferred
+1. DSDT patch HDEF + IRQ (layout-id is 1) - preferred
 2. Clover config.plist
-3. HDAEnabler.kext 
+3. HDAEnabler.kext  + realtekALC.kext
 
 --------------------------------------------------------------------------------------------
 
