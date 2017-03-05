@@ -1,0 +1,4 @@
+# add these lines into method _WAK after NVSS:
+\_SB.PCI0.LPC.EC.LED (Zero, 0x80)
+\_SB.PCI0.LPC.EC.LED (0x0A, 0x80)
+\_SB.PCI0.LPC.EC.LED (0x07, Zero)
