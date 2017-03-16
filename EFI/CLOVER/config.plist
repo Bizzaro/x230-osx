@@ -61,7 +61,7 @@
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>1</string>
+			<string>3</string>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -77,6 +77,8 @@
 			<string>0x0</string>
 			<key>SATA</key>
 			<string>0x0</string>
+			<key>WIFI</key>
+			<string>0x43a014E4</string>
 			<key>XHCI</key>
 			<string>0x0</string>
 		</dict>
@@ -96,8 +98,8 @@
 	<dict>
 		<key>Hide</key>
 		<array>
-			<string>Windows</string>
 			<string>\EFI\BOOT\BOOTX64.EFI</string>
+			<string>Windows</string>
 		</array>
 		<key>Language</key>
 		<string>en:0</string>
@@ -164,49 +166,155 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>t1-t1-10.9-10.12-AppleHDA/Realtek ALC269</string>
+				<string>10.12-BCM94352-fvco-darkvoid</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
-				YgLsEA==
+				gflSqgAAdSk=
 				</data>
 				<key>Name</key>
-				<string>AppleHDA</string>
+				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
 				<data>
-				aQLsEA==
+				gflSqgAAZpA=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>t1-10.9-10.12-AppleHDA/Realtek ALC269</string>
+				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
-				YgLsEA==
+				QYP8/3QsSA==
 				</data>
 				<key>Name</key>
-				<string>AppleHDA</string>
+				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
 				<data>
-				aQLsEA==
+				ZscGVVPrKw==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>t1-AppleHDA/Resources/xml&gt;zml</string>
+				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
-				eG1sLnps
+				axAAAHUN
 				</data>
 				<key>Name</key>
-				<string>AppleHDA</string>
+				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
 				<data>
-				em1sLnps
+				axAAAJCQ
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11-BCM94352-CC=#a-Ramalama</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGI2HrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Whitelest-0x4353-MacBoolAir5,2-skvo</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				TWFjLTI3QURCQjdCNENFRThFNjE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				TWFjLTI3QURCQjdCNENFRThFNjE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.9-BCM94352-5 GHz</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AVhU
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				AVhY
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
+				</data>
+				<key>InfoPlistPatch</key>
+				<true/>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-5GHz-US-FCC-darkvoid</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGVVPrKw==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>10.11+-BT4LE-Handoff-Hotspot-lisai9093</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				SIX/dEdIiwc=
@@ -218,10 +326,36 @@
 				Qb4PAAAA60Q=
 				</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Zeroing 10ec0885 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Find</key>
+				<data>
+				hQjsEA==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Patching 11d41984 with 10ec0269 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Find</key>
+				<data>
+				hBnUEQ==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				aQLsEA==
+				</data>
+			</dict>
 		</array>
 	</dict>
-	<key>KextsToPatch</key>
-	<array/>
 	<key>RtVariables</key>
 	<dict>
 		<key>BooterConfig</key>
@@ -243,6 +377,8 @@
 		<string>Mac-6F01561E16C75D06</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string></string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>ChassisAssetTag</key>
@@ -261,6 +397,10 @@
 		<true/>
 		<key>ProductName</key>
 		<string>MacBookPro9,2</string>
+		<key>SerialNumber</key>
+		<string></string>
+		<key>SmUUID</key>
+		<string></string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>
@@ -268,6 +408,8 @@
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
+		<key>CustomUUID</key>
+		<string></string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectSystemID</key>
