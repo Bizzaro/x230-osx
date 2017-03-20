@@ -172,9 +172,7 @@ English
 
 2.   Open `Tools `folder from this repository and run KextBeast. Install all kexts on your Desktop. The kext files on your Desktop can be deleted once the installation completed successfully. 
 
-3.   Install VooDooHDA-2.8.8.pkg in the `Tools/` folder.
-
-4.   Go to `/System/Library/Extensions/VooDooHDA.kext/Contents`, Locate `Info.plist` and find  `IOKitPersonalities/MixerValues`. Set `iGain` to 0.
+3.   Install aDummyHDA.kext via KextBeast.
 
 5.  Run `Kext Utility.app` in `Tools/` folder from this repository. Type your password and fix Kexts Permissions and rebuild cache.
 

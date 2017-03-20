@@ -7248,7 +7248,7 @@ DefinitionBlock ("", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         })
                     }
 
-                    Name (_IRC, 0x00)  // _IRC: Inrush Current
+                    Method(_IRC, 0, NotSerialized) { Return(0x00) }  // _IRC: Inrush Current
                     OperationRegion (ATRP, SystemMemory, \ATRB, 0x00010000)
                     Field (ATRP, AnyAcc, Lock, Preserve)
                     {
@@ -9495,18 +9495,22 @@ DefinitionBlock ("", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                 {
                     Noop
                 }
+                
+                Name(_PRW, Package() { 0x6D, 0 })
                 Method (_DSM, 4, NotSerialized)
                 {
                     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                     Return (Package()
                     {
-                        "layout-id", Buffer() { 12, 0x00, 0x00, 0x00 },
-                        "hda-gfx", Buffer() { "onboard-1" },
+                        "AAPL,slot-name", Buffer() { "Built in" },
+                        "layout-id", Buffer() { 0x03, 0x00, 0x00, 0x00 },
+                        "device_type", Buffer() { "Audio Controller" },
+                        "built-in", Buffer() { 0x00 },
                         "PinConfigurations", Buffer() { },
-                        //"MaximumBootBeepVolume", 77,
+                        "hda-gfx", Buffer() { "onboard-1" }
                     })
                 }
-                Name(_PRW, Package() { 0x6D, 0 })
+                
             }
         }
 
