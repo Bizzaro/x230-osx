@@ -1,11 +1,11 @@
-# Thinkpad X230 Clover Config for macOS 10.12 ~ 10.12.3
+# Thinkpad X230 Clover Config for macOS 10.12 ~ 10.12.4
 English
 
 **Run macOS Sierra on your ThinkPad X230**
 
 **Video Tutorial : https://www.youtube.com/watch?v=MkGsSwpwheQ**
 
-**Last Edit 2017/3/5**
+**Last Edit 2017/03/29**
 
 ## Introduction
 
@@ -57,7 +57,6 @@ English
  - Battery status
  - Keyboard, TrackPoint
  - Intel Graphics HD 4000 
- - Backlight Control
  - Webcam
  - Bluetooth
  - Shutdown / Reboot
@@ -97,6 +96,7 @@ English
 
  - Boot Animation glitch 
  - Hibernation Wake
+ - Backlight Control (Figuring solution)
 
 ## Setup guide
 
