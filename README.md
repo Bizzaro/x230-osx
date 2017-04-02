@@ -20,6 +20,12 @@ English
 
 ------
 
+**Update**
+
+- Screen brightness is not working on macOS 10.12.4 (maybe Night Shift messed up the screen brightness mechanism), there is a workaround here (credit goes to Rehabman): https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
+
+------
+
 **Guides/Examples (Credit Goes to tonymacx86 , InsanelyMac , Gurus , Rehabman , etc)**
 
  1. Brief Introduction : https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/
