@@ -22,7 +22,7 @@ English
 
 **Update**
 
-- Screen brightness is not working on macOS 10.12.4 (maybe Night Shift messed up the screen brightness mechanism), there is a workaround here (credit goes to Rehabman): https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
+- Screen brightness is working on macOS 10.12.4 but it is not adjustable.(maybe Night Shift messed up the screen brightness mechanism), there is a workaround here (credit goes to Rehabman): https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
 
 ------
 
@@ -37,7 +37,8 @@ English
  7. AppleHDA Patching : http://forum.osxlatitude.com/index.php?/topic/1946-complete-applehda-patching-guide/
  8.  iMessage / FaceTime : https://www.tonymacx86.com/threads/how-to-fix-imessage.110471/
  9.  iDiot's guide to iMessage / FaceTime : https://www.tonymacx86.com/threads/an-idiots-guide-to-imessage.196827/
- 10.  Everymac Lookup : http://www.everymac.com/ultimate-mac-lookup/
+ 10. Everymac Lookup : http://www.everymac.com/ultimate-mac-lookup/
+ 11. Enable Intel WiFi without hardware flashing BIOS :https://www.tonymacx86.com/threads/rebranding-intel-centrino-n6205-into-ar5b95-and-fake-pci-id.203658/#post-1339270  (credit goes to Rehabman and Tasos Sofi)
  
 
 ## Summary
