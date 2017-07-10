@@ -1,18 +1,19 @@
-# Thinkpad X230 Clover Config for macOS 10.12 ~ 10.12.4
+# Thinkpad X230 Clover Config for macOS 10.12 ~ 10.12.5
+# View 10.13 Branch to learn how to install High Sierra Public Beta.
 English
 
 **Run macOS Sierra on your ThinkPad X230**
 
 **Video Tutorial : https://www.youtube.com/watch?v=MkGsSwpwheQ**
 
-**Last Edit 2017/03/29**
+**Last Edit 2017/07/10**
 
 ## Introduction
 
 **Note**
 
- -  You might have to search for extra resources online to boot your macOS 10.12.2 Installation.
- -  The WiFi Card used in this tutorial is Azurewave CE123-H. It can be installed through hardware flashing the BIOS on the ThinkPad.
+ -  Extra resources from online sources might be required.
+ -  The WiFi Card used in this tutorial is Azurewave CE123-H. (BIOS whitelist removed)
  -  The resources listed here are gathered from Rehabman, tonymacx86 and different sources. It's based on Bizzaro's x230-osx project. Link here: https://github.com/Bizzaro/x230-osx
  -  Sorry for my bad english and this complicated guide.
  -  Install macOS Sierra might cause Data Loss. **REMEMBER TO BACKUP BEFORE INSTALLING**.
@@ -22,7 +23,8 @@ English
 
 **Update**
 
-- Screen brightness is working on macOS 10.12.4 but it is not adjustable.(maybe Night Shift messed up the screen brightness mechanism), there is a workaround here (credit goes to Rehabman): https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
+- Screen brightness is working on macOS 10.12.5 but it is not adjustable.(maybe Night Shift messed up the screen brightness mechanism), there is a workaround here (credit goes to Rehabman): https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
+
 
 ------
 
@@ -43,13 +45,13 @@ English
 
 ## Summary
 
-**Hardware**
+**Specs**
 
  - CPU : Intel Core i7 - 3520M
  - RAM : 8GB DDR3 1600MHz SO-DIMM
  - Storage : 250GB Intel SSD SATA 6Gb/s
- - Operating System : macOS Sierra 10.12.2
- - Bootloader : Clover v2.3k r3974 
+ - Operating System : macOS Sierra 10.12.5
+ - Bootloader : Clover v2.4k r4097 
  - EFI Firmware : 2.67 (Modified)
  - EC Firmware : 1.14
  - WLAN Card : AzureWave CE-123H (Broadcom BCM94352HMB) 
