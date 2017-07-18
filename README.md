@@ -1,6 +1,6 @@
 # Thinkpad X230 Clover Config for macOS 10.12 ~ 10.12.5
 
-**View 10.13 Branch to learn how to install High Sierra Public Beta.**
+**View ThinkPad-X230-macOS-10.13 Repository to learn how to install High Sierra Public Beta.**
 
 **Run macOS Sierra on your ThinkPad X230**
 
@@ -23,7 +23,8 @@
 
 **Update**
 
-- Screen brightness is working on macOS 10.12.5 but it is not adjustable.(maybe Night Shift messed up the screen brightness mechanism), there is a workaround here (credit goes to Rehabman): https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
+- Update config.plist to fix BackLight
+- [FIXED on 18/7/2017] Screen brightness is working on macOS 10.12.5 but it is not adjustable.(maybe Night Shift messed up the screen brightness mechanism), there is a workaround here (credit goes to Rehabman): https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
 
 
 ------
@@ -81,6 +82,7 @@
  - AirDrop
  - HandOff (With AirPort)
  - Universal Clipboard (With AirPort)
+ - BackLight
  
 -----
 
@@ -225,11 +227,22 @@ the ESP of your local drive. (Where Sierra is installed on)
 --------------------------------------------------------------------------------------------
 
 ### AppleHDA injection methods (choose one from the list)
-1. DSDT patch HDEF + IRQ (layout-id is 1) - preferred
-2. Clover `config.plist`
-3. `HDAEnabler.kext`  + `realtekALC.kext`
+These 3 tasks must be done to make sure Audio working out of box.
+1. DSDT patch HDEF + IRQ (layout-id is 12)
+2. Up to date `config.plist`
+3. `HDAEnabler.kext`  + `realtekALC.kext`+ `VooDooHDA.kext` in Clover/kexts/Others
 
 --------------------------------------------------------------------------------------------
+
+### About the BackLight issue in 10.12.4~10.13
+The backlight issue can be fixed by updating config.plist
+Alternatively, the following patches are required:
+1. Adding SSDT-PNLF.aml and Update DSDT.aml (Removed all BackLight patches), included in EFI folder in this repository.
+2. Removing IntelBackLight.kext in Clover/kexts/Others
+3. Adding patches to config.plist
+For details please see here: https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
+
+** Please note that AppleBacklightInjector.kext is not needed. Once you finished the steps mentioned, BackLight will work as you boot up the machine.
 
 ### Other Resources ###
 
