@@ -1,12 +1,12 @@
 # Thinkpad X230 Clover Config for macOS 10.12 ~ 10.12.5
 
-**View ThinkPad-X230-macOS-10.13 Repository to learn how to install High Sierra Public Beta.**
+**View 10.13 branch to learn how to install High Sierra Public Beta.**
 
 **Run macOS Sierra on your ThinkPad X230**
 
-**Video Tutorial : https://www.youtube.com/watch?v=MkGsSwpwheQ**
+**Video Tutorial : https://www.youtube.com/watch?v=MkGsSwpwheQ (For 10.12)**
 
-**Last Edit 2017/07/10**
+**Last Edit 2017/07/19**
 
 ## Introduction
 
@@ -134,9 +134,9 @@
 
 ---------
 
-## Create USB Installer
+## Create USB Installer 
 
-1. Read this first (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/). Open Clover_v2.4k_r4035 in the Tools directory of this repository and install it on your USB.
+1. Read this first (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/). Open Clover_v2.4k_r4114.pkg in the Tools directory of this repository and install it on your USB.
 
 2.  Mount EFI System Partition (ESP) of USB with EFI Mounter v3 (In tools folder). **Copy the whole repository to the root of your macOS Sierra USB Installer.**
 
