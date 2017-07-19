@@ -183,181 +183,15 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>10.12-BCM94352-fvco-darkvoid</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				gflSqgAAdSk=
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				gflSqgAAZpA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				QYP8/3QsSA==
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				ZscGVVPrKw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				axAAAHUN
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				axAAAJCQ
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11-BCM94352-CC=#a-Ramalama</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				QYP8/3QsSA==
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				ZscGI2HrKw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-Whitelest-0x4353-MacBoolAir5,2-skvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				TWFjLTI3QURCQjdCNENFRThFNjE=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				TWFjLTI3QURCQjdCNENFRThFNjE=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.9-BCM94352-5 GHz</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AVhU
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				AVhY
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
-				</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-5GHz-US-FCC-darkvoid</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				QYP8/3QsSA==
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				ZscGVVPrKw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BT4LE-Handoff-Hotspot-lisai9093</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				SIX/dEdIiwc=
-				</data>
-				<key>Name</key>
-				<string>IOBluetoothFamily</string>
-				<key>Replace</key>
-				<data>
-				Qb4PAAAA60Q=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Zeroing 10ec0885 codec (patched by AppleHDA Patcher.app)</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				hQjsEA==
-				</data>
+				<data>hQjsEA==</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>
-				AAAAAA==
-				</data>
+				<data>AAAAAA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -365,15 +199,11 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				hBnUEQ==
-				</data>
+				<data>hBnUEQ==</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>
-				aQLsEA==
-				</data>
+				<data>aQLsEA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -381,15 +211,11 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				RiV1VCUwNHgA
-				</data>
+				<data>RiV1VCUwNHgA</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleBacklight</string>
 				<key>Replace</key>
-				<data>
-				RiV1VHh4eHgA
-				</data>
+				<data>RiV1VHh4eHgA</data>
 			</dict>
 		</array>
 	</dict>
