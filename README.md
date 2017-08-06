@@ -380,8 +380,7 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 | Security/Virtualization/Intel VT-d Feature              	| Enabled   	| 如果你禁用你此功能，您可以從Clover 的組態設定刪除開機引數： dart=0                              	|
 | Security/Secure Boot/Secure Boot                        	| Disabled  	| Clover 沒有此功能.                                                                                      	|
 | Startup/UEFI / Legacy Boot                              	| UEFI Only 	| 減少開機裝置過多造成的混亂.     	|
-| Startup/UEFI / Legacy Boot/CSM Support                  	| No        	|
-若這項功能被啟用，Clover 需要一個CSM 圖形驅動程式令圖形於macOS 正常輸出。如果你是執行 Windows 7並組成雙系統，請確保這項功能被啟用兼且CSM 圖形驅動程式（`CSMVideoDxe.efi`）被安裝於 `EFI/CLOVER/drivers64UEFI` 	|
+| Startup/UEFI / Legacy Boot/CSM Support                  	| No        	|若這項功能被啟用，Clover 需要一個CSM 圖形驅動程式令圖形於macOS 正常輸出。如果你是執行 Windows 7並組成雙系統，請確保這項功能被啟用兼且CSM 圖形驅動程式（`CSMVideoDxe.efi`）被安裝於 `EFI/CLOVER/drivers64UEFI` 	|
 
 ---------
 
