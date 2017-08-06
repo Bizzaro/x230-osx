@@ -1,3 +1,6 @@
+# English 
+** 中文版請向下捲動 **
+
 # Thinkpad X230 Clover Config for macOS 10.12 ~ 10.12.5
 
 **View 10.13 branch to learn how to install High Sierra Public Beta.**
@@ -6,7 +9,9 @@
 
 **Video Tutorial : https://www.youtube.com/watch?v=MkGsSwpwheQ (For 10.12)**
 
-**Last Edit 2017/07/19**
+**Last Edit 2017/08/06**
+
+
 
 ## Introduction
 
@@ -24,8 +29,6 @@
 **Update**
 
 - Update config.plist to fix BackLight
-- [FIXED on 18/7/2017] Screen brightness is working on macOS 10.12.5 but it is not adjustable.(maybe Night Shift messed up the screen brightness mechanism), there is a workaround here (credit goes to Rehabman): https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
-
 
 ------
 
@@ -250,6 +253,7 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 
 -------------------------
 
+# 中文
 
 # ThinkPad X230 的 黑蘋果 macOS 10.12.x ~ 10.13 Clover 組態設定
 
@@ -365,19 +369,19 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 | Config/Power/Intel Rapid Start Technology               	| Disabled  	| 呢個功能要0xA0休眠分區，係macOS 入面係冇呢個功能	|
 | Config/Power/CPU Power Management                       	| Enabled   	| 啟用 CPU 能源管理                                                                       	|
 | Config/Serial ATA (SATA)/SATA Controller Mode Option    	| AHCI      	| 啟用 AHCI                                                               	|
-| Security/Predesktop Authentication                      	| Optional  	| Fingerprint is not supported on macOS / OS X but you can still use it for waking your ThinkPad.               	|
-| Security/Security Chip                                  	| Disabled  	| Disable it if you have a modified UEFI Firmware.                                                              	|
-| Security/Memory Protection/Execution Prevention         	| Enabled   	| This enables NX which is required for macOS / OS X installations.                                             	|
-| Security/Virtualization/Intel Virtualization Technology 	| Enabled   	| Delete boot argument named "dart=0" in config.plist if you set this as Disabled.                              	|
-| Security/Virtualization/Intel VT-d Feature              	| Enabled   	| Delete boot argument named "dart=0" in config.plist if you set this as Disabled.                              	|
-| Security/Secure Boot/Secure Boot                        	| Disabled  	| Not supported by Clover.                                                                                      	|
-| Startup/Boot Mode                                       	| Quick     	| This is optional.                                                                                             	|
-| Startup/UEFI / Legacy Boot                              	| UEFI Only 	| Reduces Confusion.                                                                                            	|
-| Startup/UEFI / Legacy Boot/CSM Support                  	| No        	| Setting this key as Yes requires a CSM Video Driver in Clover to provide proper video output on macOS / OS X. Only change this to Yes if you are dual booting with Windows 7 and installed CSMVideoDxe Driver in /EFI/CLOVER/drivers64UEFI/. 	|
+| Security/Predesktop Authentication                      	| 隨便  	| macOS 沒有TouchID 以外的指紋識別功能，但你仍然可改用此功能               	|
+| Security/Security Chip                                  	| Disabled  	| 如果你的EFI 韌體是經過修改的，請必須禁用此功能                                                              	|
+| Security/Memory Protection/Execution Prevention         	| Enabled   	| 啟用 CPU NX 	|
+| Security/Virtualization/Intel Virtualization Technology 	| Enabled   	| 如果你禁用你此功能，您可以從Clover 的組態設定刪除開機引數： dart=0                             	|
+| Security/Virtualization/Intel VT-d Feature              	| Enabled   	| 如果你禁用你此功能，您可以從Clover 的組態設定刪除開機引數： dart=0                              	|
+| Security/Secure Boot/Secure Boot                        	| Disabled  	| Clover 沒有此功能.                                                                                      	|
+| Startup/UEFI / Legacy Boot                              	| UEFI Only 	| 減少開機裝置過多造成的混亂.     	|
+| Startup/UEFI / Legacy Boot/CSM Support                  	| No        	|
+若這項功能被啟用，Clover 需要一個CSM 圖形驅動程式令圖形於macOS 正常輸出。如果你是執行 Windows 7並組成雙系統，請確保這項功能被啟用兼且CSM 圖形驅動程式（`CSMVideoDxe.efi`）被安裝於 `EFI/CLOVER/drivers64UEFI` 	|
 
 ---------
 
-## Create USB Installer 
+## 製造 macOS USB 安裝程式
 
 1. Read this first (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/). Open Clover_v2.4k_r4114.pkg in the Tools directory of this repository and install it on your USB.
 
