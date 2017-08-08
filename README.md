@@ -1,7 +1,7 @@
 
 # Thinkpad X230 Clover Config for macOS 10.12 ~ 10.13
 
-**English*
+**English**
 
 **中文版請向下捲動**
 
@@ -386,32 +386,58 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 
 ## 製造 macOS USB 安裝程式
 
-1. Read this first (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/). Open Clover_v2.4k_r4114.pkg in the Tools directory of this repository and install it on your USB.
+1. 請先閱讀 (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/). 於 `Tools` 目錄打開 Clover_v2.4k_r4114.pkg，然後把Clover UEFI 安裝到USB的EFI系統分區裏。
 
-2.  Mount EFI System Partition (ESP) of USB with EFI Mounter v3 (In tools folder). **Copy the whole repository to the root of your macOS Sierra USB Installer.**
+2.  利用`Tools` 目錄的`EFI Mounter v3.app`，把USB的EFI系統分區裝載 ，**複製整個數據庫的所有內容都你的USB的根目錄。**
 
-3.  Open /Volumes/EFI/Clover/ , Copy and Replace the entire `EFI/CLOVER` Folder in the ESP of your USB Drive with `EFI/CLOVER` folder in this repository.
+3.  打開`/Volumes/EFI/Clover/`，以本數據庫的`EFI/CLOVER`，取代你的USB EFI系統分區裏的`EFI/CLOVER`目錄。
 
-4.  Open `EFI/CLOVER/config.plist` in the ESP of your USB Drive. Run CloverConfigurator included in the `Tools/` folder in the repository. Generate Serial Number, BoardSerialNumber, SmUUID in SMBIOS tab. Fill in CustomUUID in SystemParameters Tab.
+4.  利用`Tools` 目錄的`Clover Configurator.app`，打開`/Volumes/EFI/Clover/config.plist`，點選SMBIOS目錄，輸入smUUID, Serial Number, Board Serial Numer及UUID。（https://youtu.be/bdfjqAeB9T0?t=66）
 
-**Special Reminder for users who have AzureWave CE-123H**
+**使用 AzureWave CE-123H的特別提示**
 
--  Before booting into the USB Installer, replace the file : `EFI/CLOVER/config.plist` with `WiFi-4352/config.plist`. Generate Serial Number, BoardSerialNumber, SmUUID in SMBIOS tab. Fill in CustomUUID in SystemParameters Tab.
+-  在從USB 的macOS 安裝程式開機前， 取代文件 : `EFI/CLOVER/config.plist` 至 `WiFi-4352/config.plist`，並重複以上第4步。
 
 
-**Special Reminder for i3 / i5 ThinkPad X230 users:**
+**使用 i3 / i5 處理器的特別提示**
 
--   Before booting into the USB Installer, **Please delete `SSDT.aml`** in `/EFI/CLOVER/ACPI/patched` in the ESP of your USB Installer and Copy NullCPUPowerManagement.kext to`/EFI/CLOVER/kexts/Other` in the ESP of your USB Installer before booting the USB Installer. You might encounter problems if you don't do this.
+-   在從USB 的macOS 安裝程式開機前， **請於USB 裡的EFI 系統分區裏的`/EFI/CLOVER/ACPI/patched` 目錄刪除 `SSDT.aml`**。若你不執行此步驟，你將無法從USB 的macOS 安裝程式開機，並會造成核心/內核崩潰 (Kernel Panic)。
 
-# Install
+# 安裝步驟
 
-1.  Modify UEFI Settings according to the table above. For other items. keep their default values.
+1.  依照以上BIOS 設定表，更新BIOS設定。
 
-2.  Boot your macOS Installer USB by pressing F12 while booting.
+2.  跟從以下指示。 https://youtu.be/bdfjqAeB9T0?t=169              
 
-3.  Go to step 4 of this guide (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/) and follow the instructions there.
+3. 按下特定鍵來選擇開機裝置 (通常 F12, F11, F10, or F8) 
+ 
+4. 選擇 USB          
+                             
+5. 於Clover 開機選單， 選擇於USB裡從 Install macOS開機
 
-4.  Follow the instructions shown in macOS Sierra. 
+6. 當你抵達安裝程式介面時，選擇一個語言          
+
+7. 對於新安裝的macOS，必須在繼續之前按照以下步驟擦除並格式化目標驅動器。
+
+8. 在頂部菜單欄中選擇工具程式，然後打開磁盤工具程式 
+ 
+9.	在左側列中突出顯示Sierra安裝的目標驅動器      
+ 
+10. 單擊擦除按鈕                               
+ 
+11. 對於名稱：輸入Sierra（您可以稍後重命名）       
+ 
+12. 格式：選擇Mac OS 擴充格式（日誌式）           
+ 
+13. 對於分區表：選擇GUID分區                   
+ 
+14. 單擊清除                            
+ 
+15. 關閉磁盤工具                                   
+
+16.  當安裝程式詢問您要安裝的位置時，請選擇Sierra或現有的安裝。
+
+17.  完成後，系統將自動重啟。
 
 --------
 
