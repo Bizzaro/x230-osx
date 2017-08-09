@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>15B42</string>
+	<string>15F34</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>CodecCommander</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.5.0, Copyright © 2013-2014 TimeWalker. All rights reserved.</string>
+	<string>2.6.1, Copyright © 2013-2014 TimeWalker. All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.tw.CodecCommander</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.5.0</string>
+	<string>2.6.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -27,11 +27,11 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.5.0</string>
+	<string>2.6.1</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>7B1005</string>
+	<string>7D175</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
@@ -39,9 +39,9 @@
 	<key>DTSDKName</key>
 	<string>macosx10.6</string>
 	<key>DTXcode</key>
-	<string>0711</string>
+	<string>0730</string>
 	<key>DTXcodeBuild</key>
-	<string>7B1005</string>
+	<string>7D175</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>CodecCommander</key>
@@ -331,7 +331,7 @@
 			<key>IOUserClientClass</key>
 			<string>CodecCommanderClient</string>
 		</dict>
-		<key>CodecCommander PowerHook</key>
+		<key>CodecCommanderPowerHook</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>org.tw.CodecCommander</string>
@@ -356,7 +356,37 @@
 			<key>IOProviderClass</key>
 			<string>AppleHDADriver</string>
 		</dict>
-		<key>CodecCommander VoodooHDA</key>
+		<key>CodecCommanderProbeInit</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>org.tw.CodecCommander</string>
+			<key>Codec Profile</key>
+			<dict>
+				<key>Default</key>
+				<dict>
+					<key>Custom Commands</key>
+					<array/>
+				</dict>
+			</dict>
+			<key>IOClass</key>
+			<string>CodecCommanderProbeInit</string>
+			<key>IOProbeScore</key>
+			<integer>5000</integer>
+			<key>IOProviderClass</key>
+			<string>IOHDACodecDevice</string>
+		</dict>
+		<key>CodecCommanderResidency</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>org.tw.CodecCommander</string>
+			<key>IOClass</key>
+			<string>CodecCommanderResidency</string>
+			<key>IOMatchCategory</key>
+			<string>CodecCommanderResidency</string>
+			<key>IOProviderClass</key>
+			<string>IOResources</string>
+		</dict>
+		<key>CodecCommanderVoodooHDA</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>org.tw.CodecCommander</string>
@@ -403,17 +433,6 @@
 			<string>VoodooHDADevice</string>
 			<key>IOUserClientClass</key>
 			<string>CodecCommanderClient</string>
-		</dict>
-		<key>CodecCommanderResidency</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>org.tw.CodecCommander</string>
-			<key>IOClass</key>
-			<string>CodecCommanderResidency</string>
-			<key>IOMatchCategory</key>
-			<string>CodecCommanderResidency</string>
-			<key>IOProviderClass</key>
-			<string>IOResources</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

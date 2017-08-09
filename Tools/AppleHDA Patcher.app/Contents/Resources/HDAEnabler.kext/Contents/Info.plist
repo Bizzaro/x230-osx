@@ -31,23 +31,18 @@
 			<key>HDAProperties</key>
 			<dict>
 				<key>PinConfigurations</key>
-				<data>
-				</data>
+				<data></data>
 				<key>built-in</key>
-				<data>
-				AA==
-				</data>
+				<data>AA==</data>
 				<key>hda-gfx</key>
 				<string>&lt;onboard-1&gt;</string>
 				<key>layout-id</key>
-				<data>
-				AwAAAA==
-				</data>
+				<data>AwAAAA==</data>
 			</dict>
 			<key>IOClass</key>
 			<string>HDAEnabler</string>
 			<key>IOPCIClassMatch</key>
-			<string>0x04030000&amp;0xffff0000</string>
+			<string>0x04010000&amp;0xFFFD0000</string>
 			<key>IOProbeScore</key>
 			<integer>600</integer>
 			<key>IOProviderClass</key>

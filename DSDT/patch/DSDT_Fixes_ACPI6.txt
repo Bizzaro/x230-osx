@@ -1,0 +1,528 @@
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#audio_HDEF-layout12.txt
+
+# Note: Change your layout ID if you need something different
+# Note: "hda-gfx" is not needed with Haswell and should probably be removed
+
+#   Inject Audio info
+into method label _DSM parent_label HDEF remove_entry;
+into device label HDEF insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "layout-id", Buffer() { 12, 0x00, 0x00, 0x00 },\n
+        "hda-gfx", Buffer() { "onboard-1" },\n
+        "PinConfigurations", Buffer() { },\n
+        //"MaximumBootBeepVolume", 77,\n
+    })\n
+}\n
+end;
+
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#battery_Lenovo-X230i.txt
+
+# Created by Jarett, 2015-06-15
+# some fixes by Rehabman
+
+# Works for:
+#   Lenovo ThinkPad X230i
+
+# Note: This DSDT requires "Fix Mutex with non-zero SyncLevel"
+
+# Note: disable secondary battery
+#  *** remove this line if you have a second battery installed)
+into method label _STA parent_label BAT1 replace_content begin Return(0) end;
+
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized) { Return(Or(Arg0, ShiftLeft(Arg1, 8))) }\n
+end;
+
+into method label B1B4 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B4, 4, NotSerialized)\n
+{\n
+    Store(Arg3, Local0)\n
+    Or(Arg2, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg1, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg0, ShiftLeft(Local0, 8), Local0)\n
+    Return(Local0)\n
+}\n
+end;
+
+into method label RE1B parent_label EC remove_entry;
+into method label RECB parent_label EC remove_entry;
+into device label EC insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+// Arg0 - offset in bytes from zero-based EC\n
+{\n
+    OperationRegion(ECOR, EmbeddedControl, Arg0, 1)\n
+    Field(ECOR, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+// Arg0 - offset in bytes from zero-based EC\n
+// Arg1 - size of buffer in bits\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+
+# Change EC register declarations bigger than 8 bit
+into device label EC code_regex HWAK,\s+16, replace_matched begin AK00,8,AK01,8, end;
+into device label EC code_regex SBRC,\s+16, replace_matched begin RC00,8,RC01,8, end;
+into device label EC code_regex SBFC,\s+16, replace_matched begin FC00,8,FC01,8, end;
+into device label EC code_regex SBAC,\s+16, replace_matched begin AC00,8,AC01,8, end;
+into device label EC code_regex SBVO,\s+16, replace_matched begin BV00,8,BV01,8, end;
+into device label EC code_regex SBBM,\s+16, replace_matched begin SB00,8,SB01,8, end;
+into device label EC code_regex SBDC,\s+16, replace_matched begin DC00,8,DC01,8, end;
+into device label EC code_regex SBDV,\s+16, replace_matched begin DV00,8,DV01,8, end;
+into device label EC code_regex SBSN,\s+16 replace_matched begin SN00,8,SN01,8 end;
+into device label EC code_regex SBCH,\s+32 replace_matched begin CH00,8,CH01,8,CH02,8,CH03,8 end;
+into device label EC code_regex (SBMN,)\s+(128) replace_matched begin BMNX,%2,//%1%2 end;
+into device label EC code_regex (SBDN,)\s+(128) replace_matched begin BDNX,%2,//%1%2 end;
+
+#put 8-bit variable together
+into method label _L1D code_regex \(\\_SB\.PCI0\.LPC\.EC\.HWAK, replaceall_matched begin (B1B2(\\_SB.PCI0.LPC.EC.AK00,\\_SB.PCI0.LPC.EC.AK01), end;
+into method label GBST code_regex \(SBRC, replaceall_matched begin (B1B2(RC00,RC01), end;
+into method label GBIF code_regex \(SBFC, replaceall_matched begin (B1B2(FC00,FC01), end;
+into method label GBST code_regex \(SBAC, replaceall_matched begin (B1B2(AC00,AC01), end;
+into method label GBST code_regex \(SBVO, replaceall_matched begin (B1B2(BV00,BV01), end;
+into method label GBIF code_regex \(SBBM, replaceall_matched begin (B1B2(SB00,SB01), end;
+into method label GBIF code_regex \(SBDC, replaceall_matched begin (B1B2(DC00,DC01), end;
+into method label GBIF code_regex \(SBDV\) replaceall_matched begin (B1B2(DV00,DV01)) end;
+into method label GBIF code_regex SBDV, replaceall_matched begin B1B2(DV00,DV01), end;
+into method label GBIF code_regex \(SBSN, replaceall_matched begin (B1B2(SN00,SN01), end;
+into method label GBIF code_regex \(SBCH, replaceall_matched begin (B1B4(CH00,CH01,CH02,CH03), end;
+into method label GBIF code_regex \(SBMN, replaceall_matched begin (RECB(0xA0,128), end;
+into method label GBIF code_regex \(SBDN, replaceall_matched begin (RECB(0xA0,128), end;
+
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#graphics_HD4K_low.txt
+
+#
+# Use this patch if your laptop has the standard 1366x768 screen
+#
+# Use dual-link if you have 1600x900 or have upgraded
+# to 1080p screen.
+#
+
+#   Inject HDMI info into GFX0/IGPU
+into method label _DSM parent_adr 0x00020000 remove_entry;
+into device name_adr 0x00020000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x66, 0x01 },\n
+        "hda-gfx", Buffer() { "onboard-1" },\n
+    })\n
+}\n
+end;
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#graphics_Rename-B0D3.txt
+
+# for DSDT
+
+into method label _WAK code_regex B0D3 replaceall_matched begin HDAU end;
+into definitionblock code_regex B0D3 replaceall_matched begin HDAU end;
+
+# inject "hda-gfx"="onboard-1" into HDAU (B0D3 originally)
+into method label _DSM parent_adr 0x00030000 remove_entry;
+into device name_adr 0x00030000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "layout-id", Buffer() { 12, 0x00, 0x00, 0x00 },\n
+        "hda-gfx", Buffer() { "onboard-1" },\n
+    })\n
+}\n
+end;
+
+into device label B0D3 set_label begin HDAU end;
+into method label SBCB code_regex B0D3 replaceall_matched begin HDAU end;
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#system_Mutex.txt
+
+#
+# Some DSDTs use Mutex objects with non-zero a SyncLevel.  Evidently,
+# OS X has some difficulty with this part of the ACPI spec, either that 
+# or the DSDTs are, in fact, codec incorrectly and Windows is ignoring 
+# it.
+
+# The common result of a non-zero SyncLevel is failure of methods at the
+# point of Acquire on the mutext in question.  This can result in strange
+# behavior, failed battery status, or other issues.
+#
+# This patch corrects all Mutex objects declared with a non-zero
+# SyncLevel to use zero.
+#
+
+# 2x as there is some sort of MaciASL bug...
+# (code_regex_not seems broken)
+#into_all all code_regex_not Mutex\s+\([^,]*,\s+0x00\) code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+#into_all all code_regex_not Mutex\s+\([^,]*,\s+0x00\) code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+
+# 10x as workaround for MaciASL bug...
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+into_all all code_regex Mutex\s+\(([^,]*),\s+[^)]*\) replaceall_matched begin Mutex(%1, 0) end;
+
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#system_IRQ.txt
+
+# This can fix non-working audio and also has an affect on HPET.
+#
+# Use this if you have issues with patched AppleHDA (required on almost all laptops)
+# or if you have issues with HPET (restart after wake).
+
+# IRQ fix
+into device name_hid PNP0000 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_matched;
+into device name_hid PNP0100 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_matched;
+into device name_hid PNP0B00 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_matched;
+into device name_hid PNP0103 code_regex IRQNoFlags\s\(\)\n\s+\{.*\} removeall_matched;
+into device name_hid PNP0103 code_regex Name\s\(([^,]+),\sResourceTemplate\s\(\).*\n\s+\{((?:.|\n)*)\}\) replace_matched
+begin
+Name (%1, ResourceTemplate()\n
+{\n
+    IRQNoFlags() { 0, 8, 11, 15 }\n
+%2
+})\n
+end;
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#system_OSYS_win7.txt
+
+# Cause the DSDT to simulate "Windows 2009" when running under "Darwin" (OS X).
+#
+# This can fix various DSDT related problems for code within the DSDT
+# that is conditional on the operating system version.
+#
+# Sometimes "Windows 2009" is a better choice than "Windows 2006"
+
+into_all method code_regex If\s+\([\\]?_OSI\s+\(\"Windows\s2009\"\)\) replace_matched begin If(LOr(_OSI("Darwin"),_OSI("Windows 2009"))) end;
+
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#system_OSYS_win8.txt
+
+# Cause the DSDT to simulate "Windows 2012" when running under "Darwin" (OS X).
+#
+# This can fix various DSDT related problems for code within the DSDT
+# that is conditional on the operating system version.
+#
+# Sometimes "Windows 2012" is a better choice than "Windows 2006"
+
+into_all method code_regex If\s+\([\\]?_OSI\s+\(\"Windows\s2012\"\)\) replace_matched begin If(LOr(_OSI("Darwin"),_OSI("Windows 2012"))) end;
+
+
+# ==============
+#Maintained by: RehabMan for: Laptop Patches
+#system_OSYS.txt
+
+# Cause the DSDT to simulate "Windows 2006" when running under "Darwin" (OS X).
+#
+# This can fix various DSDT related problems for code within the DSDT
+# that is conditional on the operating system version.
+
+# sometimes in Scope (_SB.PCI0)
+into method label _INI parent_label _SB.PCI0 code_regex If\s+\([\\]?_OSI\s+\(\"Windows\s2006\"\)\) replace_matched begin If(LOr(_OSI("Darwin"),_OSI("Windows 2006"))) end;
+
+# sometimes in Scope (_SB)
+into method label _INI parent_label _SB code_regex If\s+\([\\]?_OSI\s+\(\"Windows\s2006\"\)\) replace_matched begin If(LOr(_OSI("Darwin"),_OSI("Windows 2006"))) end;
+
+# enable this one to be a bit more agressive...
+#into_all method code_regex If\s+\([\\]?_OSI\s+\(\"Windows\s2006\"\)\) replace_matched begin If(LOr(_OSI("Darwin"),_OSI("Windows 2006"))) end;
+
+
+# ==============
+#Maintained by: RehabMan for: Laptop Patches
+#system_RTC.txt
+
+#   RTC fix
+into device name_hid PNP0B00 code_regex (IO\s\((?:\s*[^,]+,\s*(?:\/\/\s.*)?\s*\n)+\s*)(\dx\d+)(,\s*(?:\/\/\s.*)?\s*\n\s*\)) replace_matched begin %10x02%3 end;
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#usb_USB_7-series.txt
+
+# USB property injection for 7-series boards (originally HM76)
+
+# Insert Apple USB properties into EHC1
+into method label _DSM parent_adr 0x001D0000 remove_entry;
+into device name_adr 0x001D0000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,clock-id", Buffer() { 0x01 },\n
+        "built-in", Buffer() { 0x00 },\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
+    })\n
+}\n
+end;
+
+# Insert Apple USB properties into EHC2
+into method label _DSM parent_adr 0x001A0000 remove_entry;
+into device name_adr 0x001A0000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,clock-id", Buffer() { 0x01 },\n
+        "built-in", Buffer() { 0x00 },\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
+    })\n
+}\n
+end;
+
+# Insert Apple USB properties into USB 3.0 XHC
+into method label _DSM parent_adr 0x00140000 remove_entry;
+into device name_adr 0x00140000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,clock-id", Buffer() { 0x02 },\n
+        "built-in", Buffer() { 0x00 },\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
+    })\n
+}\n
+end;
+
+
+# ==============
+
+#Maintained by: RehabMan for: Laptop Patches
+#usb_prw_0x6d_xhc.txt
+
+# remove _PRW methods to prevent instant wake
+
+# delete any existing XHC1 device
+into device label XHC1 name_adr 0x00140000 remove_entry;
+# delete any existing USB2 device
+into device label USB2 name_adr 0x001D0000 remove_entry;
+
+# if _PRW objects are methods
+into method label _PRW parent_adr 0x001D0000 remove_entry;
+into method label _PRW parent_adr 0x001A0000 remove_entry;
+into method label _PRW parent_adr 0x00140000 remove_entry;
+into method label _PRW parent_adr 0x001B0000 remove_entry;
+# some other LAN cards use 0x00190000
+into method label _PRW parent_adr 0x00190000 remove_entry;
+
+# if _PRW methods are stuffed into a separate scope
+into method label _PRW parent_label _SB.PCI0.EHC1 remove_entry;
+into method label _PRW parent_label _SB.PCI0.EHC2 remove_entry;
+into method label _PRW parent_label _SB.PCI0.XHC remove_entry;
+into method label _PRW parent_label \_SB.PCI0.EHC1 remove_entry;
+into method label _PRW parent_label \_SB.PCI0.EHC2 remove_entry;
+into method label _PRW parent_label \_SB.PCI0.XHC remove_entry;
+
+# if _PRW objects are names
+into device name_adr 0x001D0000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+into device name_adr 0x001A0000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+into device name_adr 0x00140000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+into device name_adr 0x001B0000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+into device name_adr 0x00190000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+# some _PRW have three entries in the Package
+into device name_adr 0x001D0000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+into device name_adr 0x001A0000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+into device name_adr 0x00140000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+into device name_adr 0x001B0000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+into device name_adr 0x00190000 code_regex Name.*_PRW.*\n.*\n.*\n.*\n.*\n.*\}\) remove_matched;
+
+# seems to work better if _PRW is present, but returns 0 (original was 3) for sleep state
+into device name_adr 0x001D0000 insert begin Name(_PRW, Package() { 0x6D, 0 }) end;
+into device name_adr 0x001A0000 insert begin Name(_PRW, Package() { 0x6D, 0 }) end;
+into device name_adr 0x00140000 insert begin Name(_PRW, Package() { 0x6D, 0 }) end;
+into device name_adr 0x001B0000 insert begin Name(_PRW, Package() { 0x6D, 0 }) end;
+into device name_adr 0x00190000 insert begin Name(_PRW, Package() { 0x6D, 0 }) end;
+
+# USB property injection for 7-series boards (originally HM76)
+
+# Insert Apple USB properties into EHC1
+into method label _DSM parent_adr 0x001D0000 remove_entry;
+into device name_adr 0x001D0000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
+    })\n
+}\n
+end;
+
+# Insert Apple USB properties into EHC2
+into method label _DSM parent_adr 0x001A0000 remove_entry;
+into device name_adr 0x001A0000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
+    })\n
+}\n
+end;
+
+# Insert Apple USB properties into USB 3.0 XHC
+into method label _DSM parent_adr 0x00140000 remove_entry;
+into device name_adr 0x00140000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
+    })\n
+}\n
+end;
+
+
+# special cases... (not in u430 DSDT)
+#into scope label _SB.PCI0.XHC.RHUB.HS05 set_label begin _SB.PCI0.XHC1.RHUB.HS05 end;
+
+
+
+# ==============
+
+# _Q15 (Fn+F8) brightness down key
+into method label _Q15 replace_content
+begin
+Notify(\_SB.PCI0.LPC.KBD, 0x0205)\n
+Notify(\_SB.PCI0.LPC.KBD, 0x0285)\n
+end;
+
+# _Q14 (Fn+F9) brightness up key
+into method label _Q14 replace_content
+begin
+Notify(\_SB.PCI0.LPC.KBD, 0x0206)\n
+Notify(\_SB.PCI0.LPC.KBD, 0x0286)\n
+end;
+
+
+# ==============
+
+# ==============
+
+# ==============
+
+# ==============
+
+# ==============
+
+# ==============
+
+# ==============
+
+# ==============
+
+# ==============
+
+# ==============
+
