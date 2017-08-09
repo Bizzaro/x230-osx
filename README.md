@@ -435,92 +435,58 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
  
 15. 關閉磁盤工具                                   
 
-16.  當安裝程式詢問您要安裝的位置時，請選擇Sierra或現有的安裝。
+16.  當安裝程式詢問您要安裝的位置時，請選擇Sierra或現有的安裝
 
-17.  完成後，系統將自動重啟。
+17.  完成後，系統將自動重啟
 
 --------
 
-## Post-Install (Copied from Guide 1)
+## 完成安裝
 
-1.   Turn on your ThinkPad.
+# 完成安裝1 (內容由第一個指引直譯)
 
-2.   Press F12 to choose boot device.
+1.   以ThinkPad 開機
 
-3.   Choose USB.
+2.   開機時按下F12 鍵，選擇開機裝置
 
-4.   At the Boot Screen, choose your **new Sierra installation.**
+3.   選擇 USB
 
-5.   Complete macOS Sierra setup.
+4.   在Clover 開機選單時，**選擇你的新macOS 安裝**
 
-## Post-Install (Kexts Installation)
+5.   根據螢幕指示完成macOS 安裝
 
-1.   Copy all files inside `Kexts/` folder in this repository to your Desktop. If you are using AzureWave CE-123H, copy the Kexts in `WiFi-4352/Extra-Kexts/` to your desktop as well.
+# 完成安裝2 (Kexts Installation)
 
-2.   Open `Tools `folder from this repository and run KextBeast. Install all kexts on your Desktop. The kext files on your Desktop can be deleted once the installation completed successfully. 
+1.   將此存儲庫中的`Kexts /`文件夾內的所有文件複製到桌面。 如果您使用的是AzureWave CE123H，請將`WiFi-4352/Extra-Kexts/`中的Kext複製到桌面。
 
-3.   Install aDummyHDA.kext via KextBeast.
+2.   從該存儲庫中打開`Tools`文件夾並運行`KextBeast`。 在桌面上安裝所有的kext文件。 一旦安裝成功完成，您的桌面上的kext文件就可以被刪除。
 
-5.  Run `Kext Utility.app` in `Tools/` folder from this repository. Type your password and fix Kexts Permissions and rebuild cache.
+4.  執行 `Kext Utility.app` (在 本數據庫的`Tools/`目錄). 輸入您的密碼並修理權限及重新建立核心延伸快取(kextcache)
 
-6.  Run EFI Mounter v3.app in `Tools` Folder. Mount the ESP of the USB Installer and the ESP of the local drive, (SSD/HDD) in your ThinkPad.
+5.  在`Tools`文件夾中運行`EFI Mounter v3.app`。 將USB安裝程序的ESP和本地驅動器的ESP（SSD / HDD）安裝在ThinkPad中。
 
-7.   Copy `EFI/CLOVER` folder from the **ESP of your USB Installer** to 
+6.   Copy `EFI/CLOVER` folder from the **ESP of your USB Installer** to 
 the ESP of your local drive. (Where Sierra is installed on)
 
-8.  Check the SMBIOS of `EFI/CLOVER/config.plist` in your local drive. If they are empty, regenerate another one. Make sure you filled in BoardSerialNumber, SerialNumber and SmUUID. Also, check the CustomUUID in SystemParameters. Make sure it has a random UUID filled in.
+7.  檢查本地驅動器中的`EFI/CLOVER/config.plist`的SMBIOS。 如果它們是空的，則重新生成另一個。 確保您填寫了`BoardSerialNumber`，`SerialNumber`和`SmUUID`。 另外，檢查`SystemParameters`中的`CustomUUID`。 確保它有一個隨機的UUID。
 
-**For Users who have i3 / i5 ThinkPad X230, Please patch your SSDT to enable Native CPU Power Management**
-(Credit goes to Piker-Alpha)
+8.  重新開機
 
-1.  Open Tools/ssdtPrGen.sh-Beta Folder , run ssdtPRGen.sh 
+**若您使用i3/i5處理器的ThinkPad X230，請確保您重新建立正確的SSDT**
+(以下功勞歸Piker-Alpha所有)
 
-2.  Run this command  `sudo sh ssdtPRGen.sh`
+1.  打開 `Tools/ssdtPrGen.sh-Bet` 文件夾 , 執行 ssdtPRGen.sh 
 
-3.  Obtain SSDT.aml from ~/Library/ssdtPRGen/
+2.  從 `~/Library/ssdtPRGen/`提取 `SSDT.aml`
 
-4.  Copy (Or Replace) it to /EFI/CLOVER/ACPI in your EFI System Partition of the SATA HDD/SSD in your ThinkPad.
+3.  把提取了的SSDT替換至`/EFI/CLOVER/ACPI/patched`內的`SSDT.aml` 文件
 
-5.  Delete `NullCPUPowerManagement.kext` in `/EFI/CLOVER/kexts/` in the EFI System Partition of the SATA HDD/SSD in your ThinkPad.
-
-6.  Reboot
+4.  重新開機
 
 --------------------------------------------------------------------------------------------
 
-### Summary of problems and fixes
 
-| Feature     | Problem        | Fixes |
-| ------------- | ------------    | ----- |
-| Sleep | Instant wake, device doesn't stay asleep | Apply DSDT USB3 instant wake 0x0, RTC patches |
-| Audio | No devices in sound preferences | Inject patched AppleHDA, codec is ALC269VC_v3 , Layout ID is 1. Install HDAEnabler, realtekALC into /S/L/E |
-| Battery and PM | No battery status, no native PM | Apply DSDT patch with Thinkpad x230i + Fix Mutex with non-zero synclevel | 
-| GPU | Graphics not working natively | Apply DSDT patches for iGPU, brightness HD4000 + Low resolution | 
-| USB | Ports not working/keeps device awake | Apply DSDT patches Ivy Bridge = Intel 7 series USB | 
-| Power Off | Shutdown or Reboot takes a long time | Patch DSDT with system_Shutdown2 and system_Shutdown |
-| Sleep/power LED | LED remains in blinking state after wake | # add these lines into method _WAK after NVSS:<BR/>\_SB.PCI0.LPC.EC.LED (Zero, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x0A, 0x80)<BR/>\_SB.PCI0.LPC.EC.LED (0x07, Zero)|
-| Brightness Control | Brightness control keys don't respond | # _Q15 (Fn+F8) brightness down key<BR/>into method label _Q15 replace_content<BR/>begin<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0205)\n<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0285)\n<BR/>end;<BR/><BR/># _Q14 (Fn+F9) brightness up key<BR/>into method label _Q14 replace_content<BR/>begin<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0206)\n<BR/>    Notify(\_SB.PCI0.LPC.KBD, 0x0286)\n<BR/>end;|
-
---------------------------------------------------------------------------------------------
-
-### AppleHDA injection methods (choose one from the list)
-These 3 tasks must be done to make sure Audio working out of box.
-1. DSDT patch HDEF + IRQ (layout-id is 12)
-2. Up to date `config.plist`
-3. `HDAEnabler.kext`  + `realtekALC.kext`+ `VooDooHDA.kext` in Clover/kexts/Others
-
---------------------------------------------------------------------------------------------
-
-### About the BackLight issue in 10.12.4~10.13
-The backlight issue can be fixed by updating config.plist
-Alternatively, the following patches are required:
-1. Adding SSDT-PNLF.aml and Update DSDT.aml (Removed all BackLight patches), included in EFI folder in this repository.
-2. Removing IntelBackLight.kext in Clover/kexts/Others
-3. Adding patches to config.plist
-For details please see here: https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/
-
-** Please note that AppleBacklightInjector.kext is not needed. Once you finished the steps mentioned, BackLight will work as you boot up the machine.
-
-### Other Resources ###
+### 其他資源 ###
 
 - www.google.com
 - https://www.tonymacx86.com/forums/multi-booting.153/
