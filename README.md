@@ -254,7 +254,7 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 - https://www.youtube.com/watch?v=JB-KzDBhqTA (Credit goes to Definitely Sinking)
 
 -------------------------
-
+  
 # ThinkPad X230 的 黑蘋果 macOS 10.12.x ~ 10.13 Clover 組態設定
 
 **中文**
@@ -455,7 +455,7 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 
 5.   根據螢幕指示完成macOS 安裝
 
-# 完成安裝2 (Kexts Installation)
+# 完成安裝2 (安裝核心)
 
 1.   將此存儲庫中的`Kexts /`文件夾內的所有文件複製到桌面。 如果您使用的是AzureWave CE123H，請將`WiFi-4352/Extra-Kexts/`中的Kext複製到桌面。
 
