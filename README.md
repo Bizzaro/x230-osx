@@ -1,7 +1,7 @@
 ## Thinkpad x230 OS X - running natively with full functionality.
 
-**PLEASE NOTE THIS GUIDE MAY OR MAY NOT BE DEPRECIATED.**
-**This repository will no longer be maintained.**
+**PLEASE NOTE THIS GUIDE MAY OR MAY NOT BE DEPRECIATED.** . 
+**This repository will no longer be maintained.** . 
 
 **Last updated: April 25 2016**
 
