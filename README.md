@@ -7,7 +7,7 @@
 
 **Run macOS Sierra on your ThinkPad X230**
 
-**Video Tutorial : To be continuted **
+**Video Tutorial : https://youtu.be/kGhZUovKYFM **
 
 **Last Edit 2017/11/16**
 
@@ -261,7 +261,7 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 
 **在你的ThinkPad X230執行 macOS**
 
-**影片教學 : To be continuted **
+**影片教學 : https://youtu.be/kGhZUovKYFM **
 
 **最後更新 2017/11/16**
 
