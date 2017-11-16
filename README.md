@@ -1,17 +1,15 @@
 
-# Thinkpad X230 Clover Config for macOS 10.12 ~ 10.13
+# Thinkpad X230 Clover Config for macOS 10.13.1
 
 **English**
 
 **中文版請向下捲動**
 
-**View 10.13 branch to learn how to install High Sierra Public Beta.**
-
 **Run macOS Sierra on your ThinkPad X230**
 
-**Video Tutorial : https://www.youtube.com/watch?v=MkGsSwpwheQ (For 10.12)**
+**Video Tutorial : To be continuted **
 
-**Last Edit 2017/08/06**
+**Last Edit 2017/11/16**
 
 
 
@@ -255,19 +253,17 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 
 -------------------------
   
-# ThinkPad X230 的 黑蘋果 macOS 10.12.x ~ 10.13 Clover 組態設定
+# ThinkPad X230 的 黑蘋果 macOS 10.13.1 Clover 組態設定
 
 **中文**
 
 **Scroll Up for English Version**
 
-**如果是安裝 macOS 10.13 的話，請留意本計畫的 10.13 分支**
-
 **在你的ThinkPad X230執行 macOS**
 
-**影片教學 : https://www.youtube.com/watch?v=MkGsSwpwheQ (For 10.12)**
+**影片教學 : To be continuted **
 
-**最後更新 2017/08/06**
+**最後更新 2017/11/16**
 
 ## 簡單介紹
 
