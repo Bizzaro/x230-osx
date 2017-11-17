@@ -7,9 +7,11 @@
 
 **Run macOS Sierra on your ThinkPad X230**
 
-**Video Tutorial : https://youtu.be/kGhZUovKYFM **
+Video Tutorial : 
+https://youtu.be/kGhZUovKYFM (10.13.1)
+https://youtu.be/MkGsSwpwheQ (10.12.x)
 
-**Last Edit 2017/11/16**
+**Last Edit 2017/11/17**
 
 
 
@@ -23,12 +25,6 @@
  -  Sorry for my bad english and this complicated guide.
  -  Install macOS Sierra might cause Data Loss. **REMEMBER TO BACKUP BEFORE INSTALLING**.
  -  This guide comes with absolutely no warranty. I am not responsible for any damage in hardware , software or data loss on your laptop. Take your own risk.
-
-------
-
-**Update**
-
-- Update config.plist to fix BackLight
 
 ------
 
@@ -54,7 +50,7 @@
  - CPU : Intel Core i7 - 3520M
  - RAM : 8GB DDR3 1600MHz SO-DIMM
  - Storage : 250GB Intel SSD SATA 6Gb/s
- - Operating System : macOS Sierra 10.12.6
+ - Operating System : macOS Sierra 10.13.1
  - Bootloader : Clover v2.4k r4114 
  - EFI Firmware : 2.67 (Modified)
  - EC Firmware : 1.14
@@ -90,7 +86,7 @@
  - iMessage
  - HDMI 
  - mini-DP 
- 
+ - Backlight Control (Figuring solution)
 -----
 
 **Not Working**
@@ -105,7 +101,7 @@
 
  - Boot Animation glitch 
  - Hibernation Wake
- - Backlight Control (Figuring solution)
+
 
 ## Setup guide
 
@@ -261,9 +257,11 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
 
 **在你的ThinkPad X230執行 macOS**
 
-**影片教學 : https://youtu.be/kGhZUovKYFM **
+影片教學 :
+https://youtu.be/kGhZUovKYFM (10.13.1)
+https://youtu.be/MkGsSwpwheQ (10.12.x)
 
-**最後更新 2017/11/16**
+**最後更新 2017/11/17**
 
 ## 簡單介紹
 
@@ -275,12 +273,6 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
  -  如果這個教學很複雜，很抱歉
  -  安裝 macOS 可能導致資料遺失 **安裝前請必須備份**.
  -  本教學沒有包含任何保養，我對您的筆記本電腦上的硬件，軟件或數據丟失造成的任何損壞概不負責。安裝macOS 是冒自己的風險。
-
-------
-
-**最新消息**
-
-- 請更新 config.plist 解決螢幕背光無法調節的問題
 
 ------
 
@@ -306,7 +298,7 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
  - 中央處理器 : Intel Core i7 - 3520M
  - 主記憶體 : 8GB DDR3 1600MHz SO-DIMM
  - 儲存裝置 : 250GB Intel SSD SATA 6Gb/s
- - 作業系統 : macOS Sierra 10.12.6
+ - 作業系統 : macOS Sierra 10.13.1
  - 開機載入器 : Clover v2.4k r4114 
  - EFI 韌體 : 2.67 (經過修改)
  - 嵌入控制器 韌體 : 1.14
@@ -341,6 +333,7 @@ For details please see here: https://www.tonymacx86.com/threads/guide-laptop-bac
  - mini-DP
   - Facetime
  - iMessage
+ 
 -----
 
 **不能正常運作的功能**
