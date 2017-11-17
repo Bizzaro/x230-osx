@@ -50,19 +50,17 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>slide=0 dart=0 -xcpm darkwake=0 kext-dev-mode=1 rootless=0 debug=0x100 UseKernelCache=Yes</string>
+		<string>-v slide=0 dart=0 -xcpm darkwake=0 kext-dev-mode=1 rootless=0 debug=0x100 UseKernelCache=Yes</string>
 		<key>CustomLogo</key>
 		<false/>
 		<key>Debug</key>
 		<false/>
-		<key>DefaultVolume</key>
-		<string>Macintosh HD</string>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>1</integer>
+		<integer>-1</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -78,7 +76,7 @@
 		<false/>
 	</dict>
 	<key>ConfigName</key>
-	<string>퀘퉀</string>
+	<string>Install</string>
 	<key>Devices</key>
 	<dict>
 		<key>Audio</key>
@@ -207,7 +205,7 @@
 				<key>Comment</key>
 				<string>10.11+-BCM94352-5GHz-US-FCC-darkvoid</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				QYP8/3QsSA==
@@ -223,7 +221,7 @@
 				<key>Comment</key>
 				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
@@ -241,7 +239,7 @@
 				<key>Comment</key>
 				<string>10.9-BCM94352-5 GHz</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AVhU
@@ -257,7 +255,7 @@
 				<key>Comment</key>
 				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
@@ -273,7 +271,7 @@
 				<key>Comment</key>
 				<string>10.11+-BCM94352-Whitelest-0x4353-MacBoolAir5,2-skvo</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
@@ -289,7 +287,7 @@
 				<key>Comment</key>
 				<string>10.11-BCM94352-CC=#a-Ramalama</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				QYP8/3QsSA==
@@ -305,7 +303,7 @@
 				<key>Comment</key>
 				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				axAAAHUN
@@ -321,7 +319,7 @@
 				<key>Comment</key>
 				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				QYP8/3QsSA==
@@ -337,7 +335,7 @@
 				<key>Comment</key>
 				<string>10.12-BCM94352-fvco-darkvoid</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				gflSqgAAdSk=

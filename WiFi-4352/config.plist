@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>#DisableDrivers</key>
+	<array>
+		<string>_NOT_SHOWN_</string>
+	</array>
 	<key>ACPI</key>
 	<dict>
 		<key>DSDT</key>
@@ -12,9 +16,9 @@
 			<false/>
 			<key>Fixes</key>
 			<dict>
-				<key>FixAirport_4000</key>
+				<key>FixAirport</key>
 				<true/>
-				<key>FixShutdown_0004</key>
+				<key>FixShutdown</key>
 				<true/>
 			</dict>
 			<key>Name</key>
@@ -35,25 +39,28 @@
 			<key>EnableC6</key>
 			<true/>
 			<key>Generate</key>
-			<true/>
+			<dict>
+				<key>CStates</key>
+				<true/>
+				<key>PStates</key>
+				<true/>
+			</dict>
 		</dict>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>slide=0 dart=0 -xcpm darkwake=0 kext-dev-mode=1 rootless=0 debug=0x100 UseKernelCache=Yes</string>
+		<string>-v slide=0 dart=0 -xcpm darkwake=0 kext-dev-mode=1 rootless=0 debug=0x100 UseKernelCache=Yes</string>
 		<key>CustomLogo</key>
 		<false/>
 		<key>Debug</key>
 		<false/>
-		<key>DefaultVolume</key>
-		<string>Macintosh HD</string>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>0</integer>
+		<integer>-1</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -68,6 +75,8 @@
 		<key>UseARTFrequency</key>
 		<false/>
 	</dict>
+	<key>ConfigName</key>
+	<string>Install</string>
 	<key>Devices</key>
 	<dict>
 		<key>Audio</key>
@@ -158,9 +167,9 @@
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
-		<key>AppleRTC</key>
+		<key>AppleIntelCPUPM</key>
 		<true/>
-		<key>AsusAICPUPM</key>
+		<key>AppleRTC</key>
 		<true/>
 		<key>Debug</key>
 		<false/>
@@ -168,111 +177,29 @@
 		<false/>
 		<key>KernelCpu</key>
 		<false/>
-		<key>KernelHaswellE</key>
-		<false/>
 		<key>KernelLapic</key>
 		<true/>
 		<key>KernelPm</key>
 		<true/>
+		<key>KernelXCPM</key>
+		<false/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>10.12-BCM94352-fvco-darkvoid</string>
+				<string>10.11+-BT4LE-Handoff-Hotspot-lisai9093</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>gflSqgAAdSk=</data>
+				<data>
+				SIX/dEdIiwc=
+				</data>
 				<key>Name</key>
-				<string>AirPortBrcm4360</string>
+				<string>IOBluetoothFamily</string>
 				<key>Replace</key>
-				<data>gflSqgAAZpA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>QYP8/3QsSA==</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>ZscGVVPrKw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>axAAAHUN</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>axAAAJCQ</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11-BCM94352-CC=#a-Ramalama</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>QYP8/3QsSA==</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>ZscGI2HrKw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-Whitelest-0x4353-MacBoolAir5,2-skvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>TWFjLUM2RUZBNjM5NjJGQzZFQTA=</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>TWFjLTI3QURCQjdCNENFRThFNjE=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>TWFjLUM2RUZBNjM5NjJGQzZFQTA=</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>TWFjLTI3QURCQjdCNENFRThFNjE=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.9-BCM94352-5 GHz</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AVhU</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>AVhY</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=</data>
+				<data>
+				Qb4PAAAA60Q=
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -280,23 +207,145 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>QYP8/3QsSA==</data>
+				<data>
+				QYP8/3QsSA==
+				</data>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
-				<data>ZscGVVPrKw==</data>
+				<data>
+				ZscGVVPrKw==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>10.11+-BT4LE-Handoff-Hotspot-lisai9093</string>
+				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>SIX/dEdIiwc=</data>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
+				</data>
+				<key>InfoPlistPatch</key>
+				<true/>
 				<key>Name</key>
-				<string>IOBluetoothFamily</string>
+				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
-				<data>Qb4PAAAA60Q=</data>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.9-BCM94352-5 GHz</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AVhU
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				AVhY
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				TWFjLTI3QURCQjdCNENFRThFNjE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Whitelest-0x4353-MacBoolAir5,2-skvo</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				TWFjLTI3QURCQjdCNENFRThFNjE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11-BCM94352-CC=#a-Ramalama</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGI2HrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				axAAAHUN
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				axAAAJCQ
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGVVPrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.12-BCM94352-fvco-darkvoid</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				gflSqgAAdSk=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				gflSqgAAZpA=
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -304,33 +353,47 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>hQjsEA==</data>
+				<data>
+				hQjsEA==
+				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Patching 11d41984 with 10ec0269 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
-				<data>hBnUEQ==</data>
+				<data>
+				hBnUEQ==
+				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>aQLsEA==</data>
+				<data>
+				aQLsEA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
 				<key>Disabled</key>
 				<false/>
+				<key>Find</key>
+				<data>
+				RiV1VCUwNHgA
+				</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleBacklight</string>
-				<key>Find</key>
-				<data>RiV1VCUwNHgA</data>
 				<key>Replace</key>
-				<data>RiV1VHh4eHgA</data>
+				<data>
+				RiV1VHh4eHgA
+				</data>
 			</dict>
 		</array>
 	</dict>
@@ -346,17 +409,19 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>21/03/12</string>
+		<string>06/26/2017</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP91.88Z.00D3.B00.1203211536</string>
+		<string>MBP91.88Z.00D7.B00.1708080744</string>
 		<key>Board-ID</key>
 		<string>Mac-6F01561E16C75D06</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardType</key>
 		<integer>10</integer>
+		<key>BoardVersion</key>
+		<string>g</string>
 		<key>ChassisAssetTag</key>
 		<string>MacBook-Aluminum</string>
 		<key>ChassisManufacturer</key>
@@ -365,16 +430,20 @@
 		<string>0x09</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xC00DE137</string>
+		<key>FirmwareFeaturesMask</key>
+		<string>0xFF1FFF3F</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
 		<key>Mobile</key>
 		<true/>
+		<key>PlatformFeature</key>
+		<string>0xFFFF</string>
 		<key>ProductName</key>
 		<string>MacBookPro9,2</string>
-		<key>Trust</key>
-		<false/>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
