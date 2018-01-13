@@ -11,9 +11,11 @@ Video Tutorial :
 https://youtu.be/kGhZUovKYFM (10.13.1)
 https://youtu.be/MkGsSwpwheQ (10.12.x)
 
-**Last Edit 2017/11/17**
+**Last Edit 2018/01/13**
 
-
+**Update**
+- When booting basesystem (Including update macOS, install macOS, macOS Recovery), you must move all kexts starting with 'Bcrm' (Bcrm*.kext) in /EFI/CLOVER/kexts/Other folder. If you don't move it to else where, it will create a boot loop making you impossible to boot to macOS base system.
+- 當由macOS 底系統開機時(安裝/更新/還原macOS)，請確保/EFI/CLOVER/kexts/Other/檔案夾內，沒有任何由Bcrm字母開頭的核心延伸(kext 文件). 否則，你將無法進入安裝/還原界面。
 
 ## Introduction
 
