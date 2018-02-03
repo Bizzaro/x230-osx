@@ -1,5 +1,5 @@
 
-# Thinkpad X230 Clover Config for macOS 10.13.1
+# Thinkpad X230 Clover Config for macOS 10.13.3
 
 **English**
 
@@ -11,11 +11,15 @@ Video Tutorial :
 https://youtu.be/kGhZUovKYFM (10.13.1)
 https://youtu.be/MkGsSwpwheQ (10.12.x)
 
-**Last Edit 2018/01/13**
+**Last Edit 2018/02/03**
 
 **Update**
 - When booting basesystem (Including update macOS, install macOS, macOS Recovery), you must move all kexts starting with 'Bcrm' (Bcrm*.kext) in /EFI/CLOVER/kexts/Other folder. If you don't move it to else where, it will create a boot loop making you impossible to boot to macOS base system.
 - 當由macOS 底系統開機時(安裝/更新/還原macOS)，請確保/EFI/CLOVER/kexts/Other/檔案夾內，沒有任何由Bcrm字母開頭的核心延伸(kext 文件). 否則，你將無法進入安裝/還原界面。
+
+**Special Reminder for i5 ThinkPad X230 users:**
+
+- Remember to CHECK the `SSDT.aml` file in `EFI/CLOVER/ACPI/patched` folder is for you CPU Model. For example, if you are running Core i5-3320M Make sure the `SSDT.aml` file is for i5-3320M. (In `i5-3320M/EFI/CLOVER/ACPI/patched/`)
 
 ## Introduction
 
@@ -88,7 +92,7 @@ https://youtu.be/MkGsSwpwheQ (10.12.x)
  - iMessage
  - HDMI 
  - mini-DP 
- - Backlight Control (Figuring solution)
+ - Backlight Control
 -----
 
 **Not Working**
@@ -107,7 +111,7 @@ https://youtu.be/MkGsSwpwheQ (10.12.x)
 
 ## Setup guide
 
-**BIOS Configuration**
+**EFI Firmware Configuration**
 
 | Item                                                    	| Setting   	| Remarks                                                                                                       	|
 |---------------------------------------------------------	|-----------	|---------------------------------------------------------------------------------------------------------------	|
@@ -130,26 +134,28 @@ https://youtu.be/MkGsSwpwheQ (10.12.x)
 
 ---------
 
-## Create USB Installer 
+## Creating USB Installer
 
 1. Read this first (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/). Open Clover_v2.4k_r4114.pkg in the Tools directory of this repository and install it on your USB.
 
 2.  Mount EFI System Partition (ESP) of USB with EFI Mounter v3 (In tools folder). **Copy the whole repository to the root of your macOS Sierra USB Installer.**
 
-3.  Open /Volumes/EFI/Clover/ , Copy and Replace the entire `EFI/CLOVER` Folder in the ESP of your USB Drive with `EFI/CLOVER` folder in this repository.
+3.  Open /Volumes/EFI/Clover/ , CHECK YOUR CPU MODEL. Depending on your CPU Model, Change Directory to `i7-3520M/ ` or `i5-3210M`  or `i5-3320M` folder.
 
-4.  Open `EFI/CLOVER/config.plist` in the ESP of your USB Drive. Run CloverConfigurator included in the `Tools/` folder in the repository. Generate Serial Number, BoardSerialNumber, SmUUID in SMBIOS tab. Fill in CustomUUID in SystemParameters Tab.
+4. Copy and Replace the entire `EFI/CLOVER` Folder in the ESP of your USB Drive with `EFI/CLOVER` folder in this repository.
+
+5.  Open `EFI/CLOVER/config.plist` in the ESP of your USB Drive. Run CloverConfigurator included in the `Tools/` folder in the repository. Generate Serial Number, BoardSerialNumber, SmUUID in SMBIOS tab. Fill in CustomUUID in SystemParameters Tab.
 
 **Special Reminder for users who have AzureWave CE-123H**
 
 -  Before booting into the USB Installer, replace the file : `EFI/CLOVER/config.plist` with `WiFi-4352/config.plist`. Generate Serial Number, BoardSerialNumber, SmUUID in SMBIOS tab. Fill in CustomUUID in SystemParameters Tab.
 
 
-**Special Reminder for i3 / i5 ThinkPad X230 users:**
+**Special Reminder for i5 ThinkPad X230 users:**
 
--   Before booting into the USB Installer, **Please delete `SSDT.aml`** in `/EFI/CLOVER/ACPI/patched` in the ESP of your USB Installer and Copy NullCPUPowerManagement.kext to`/EFI/CLOVER/kexts/Other` in the ESP of your USB Installer before booting the USB Installer. You might encounter problems if you don't do this.
+- Remember to CHECK the `SSDT.aml` file in `EFI/CLOVER/ACPI/patched` folder is for you CPU Model. For example, if you are running Core i5-3320M Make sure the `SSDT.aml` file is for i5-3320M. (In `i5-3320M/EFI/CLOVER/ACPI/patched/`)
 
-# Install
+## Installation
 
 1.  Modify UEFI Settings according to the table above. For other items. keep their default values.
 

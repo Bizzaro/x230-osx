@@ -1,0 +1,42 @@
+
+Clover EFI installer log - Thu Nov 16 19:07:46 HKT 2017
+Installer version: v2.4k r4297 EFI bootloader
+======================================================
+/dev/disk0 (internal):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                         500.3 GB   disk0
+   1:                        EFI EFI                     314.6 MB   disk0s1
+   2:                 Apple_APFS Container disk1         371.0 GB   disk0s2
+   3:       Microsoft Basic Data BOOTCAMP                128.0 GB   disk0s3
+   4:           Windows Recovery                         894.4 MB   disk0s4
+
+/dev/disk1 (synthesized):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      APFS Container Scheme -                      +371.0 GB   disk1
+                                 Physical Store disk0s2
+   1:                APFS Volume Macintosh HD            95.7 GB    disk1s1
+   2:                APFS Volume Preboot                 21.6 MB    disk1s2
+   3:                APFS Volume Recovery                520.8 MB   disk1s3
+   4:                APFS Volume VM                      1.1 GB     disk1s4
+
+/dev/disk2 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *15.6 GB    disk2
+   1:                        EFI EFI                     209.7 MB   disk2s1
+   2:                  Apple_HFS Install macOS High S... 15.2 GB    disk2s2
+
+======================================================
+Backing up EFI files
+
+Backing up /Volumes/Install macOS High Sierra/EFIROOTDIR/EFI folder to /Volumes/Install macOS High Sierra/EFI-Backups/r4114/2017-11-16-19h07/EFI
+======================================================
+Installing BootSectors/BootLoader
+
+Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /Volumes/Install macOS High Sierra
+Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /Volumes/Install macOS High Sierra
+
+Removing drivers64UEFI/VBoxHfs-64.efi driver because HFSPlus driver present
+
+======================================================
+=========== Clover EFI Installation Finish ===========
+======================================================
