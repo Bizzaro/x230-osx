@@ -19,7 +19,8 @@ https://youtu.be/MkGsSwpwheQ (10.12.x)
 
 **Special Reminder for i5 ThinkPad X230 users:**
 
-- Remember to CHECK the `SSDT.aml` file in `EFI/CLOVER/ACPI/patched` folder is for you CPU Model. For example, if you are running Core i5-3320M Make sure the `SSDT.aml` file is for i5-3320M. (In `i5-3320M/EFI/CLOVER/ACPI/patched/`)
+- Remember to CHECK the `SSDT.aml` file in `EFI/CLOVER/ACPI/patched` folder is for you CPU Model. 
+- For example, if you are running Core i5-3320M Make sure the `SSDT.aml` file is for i5-3320M. (In `i5-3320M/EFI/CLOVER/ACPI/patched/`)
 
 ## Introduction
 
