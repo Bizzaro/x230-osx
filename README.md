@@ -386,7 +386,7 @@ https://youtu.be/MkGsSwpwheQ (10.12.x)
 
 1. 請先閱讀 (https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/). 於 `Tools` 目錄打開 Clover_v2.4k_r4114.pkg，然後把Clover UEFI 安裝到USB的EFI系統分區裏。
 
-2.  利用`Tools` 目錄的`EFI Mounter v3.app`，把USB的EFI系統分區裝載 ，**複製整個數據庫的所有內容都你的USB的根目錄。**
+2.  利用`Tools` 目錄的`EFI Mounter v3.app`，把USB的EFI系統分區裝載 ，**複製整個數據庫的所有內容到你的USB的根目錄。**
 
 3.  打開`/Volumes/EFI/Clover/`，以本數據庫的`EFI/CLOVER`，取代你的USB EFI系統分區裏的`EFI/CLOVER`目錄。
 
